@@ -1,0 +1,683 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C28E01C017B4C958005806FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01BF17B4C958005806FE /* UIKit.framework */; };
+		C28E01C217B4C958005806FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C117B4C958005806FE /* Foundation.framework */; };
+		C28E01C417B4C958005806FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C317B4C958005806FE /* CoreGraphics.framework */; };
+		C28E01CA17B4C958005806FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28E01C817B4C958005806FE /* InfoPlist.strings */; };
+		C28E01CC17B4C958005806FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E01CB17B4C958005806FE /* main.m */; };
+		C28E01D017B4C958005806FE /* RSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E01CF17B4C958005806FE /* RSAppDelegate.m */; };
+		C28E01D217B4C958005806FE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C28E01D117B4C958005806FE /* Default.png */; };
+		C28E01D417B4C958005806FE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28E01D317B4C958005806FE /* Default@2x.png */; };
+		C28E01D617B4C958005806FE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28E01D517B4C958005806FE /* Default-568h@2x.png */; };
+		C28E01D917B4C958005806FE /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E01D817B4C958005806FE /* RSViewController.m */; };
+		C28E01DC17B4C958005806FE /* RSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28E01DA17B4C958005806FE /* RSViewController.xib */; };
+		C28E01E417B4C958005806FE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01E317B4C958005806FE /* SenTestingKit.framework */; };
+		C28E01E517B4C958005806FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01BF17B4C958005806FE /* UIKit.framework */; };
+		C28E01E617B4C958005806FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C117B4C958005806FE /* Foundation.framework */; };
+		C28E01EE17B4C958005806FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28E01EC17B4C958005806FE /* InfoPlist.strings */; };
+		C2F932EC17B4CADA00231A57 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F932EB17B4CADA00231A57 /* libKiwi.a */; };
+		C2F9334E17B4CB2600231A57 /* WebServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C28E01E717B4C958005806FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C28E01B417B4C958005806FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C28E01BB17B4C958005806FE;
+			remoteInfo = RedditScroller;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C28E01BC17B4C958005806FE /* RedditScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C28E01BF17B4C958005806FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C28E01C117B4C958005806FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C28E01C317B4C958005806FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C28E01C717B4C958005806FE /* RedditScroller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditScroller-Info.plist"; sourceTree = "<group>"; };
+		C28E01C917B4C958005806FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C28E01CB17B4C958005806FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C28E01CD17B4C958005806FE /* RedditScroller-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedditScroller-Prefix.pch"; sourceTree = "<group>"; };
+		C28E01CE17B4C958005806FE /* RSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAppDelegate.h; sourceTree = "<group>"; };
+		C28E01CF17B4C958005806FE /* RSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAppDelegate.m; sourceTree = "<group>"; };
+		C28E01D117B4C958005806FE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C28E01D317B4C958005806FE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C28E01D517B4C958005806FE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C28E01D717B4C958005806FE /* RSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSViewController.h; sourceTree = "<group>"; };
+		C28E01D817B4C958005806FE /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
+		C28E01DB17B4C958005806FE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RSViewController.xib; sourceTree = "<group>"; };
+		C28E01E217B4C958005806FE /* RedditScrollerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditScrollerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C28E01E317B4C958005806FE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C28E01EB17B4C958005806FE /* RedditScrollerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditScrollerTests-Info.plist"; sourceTree = "<group>"; };
+		C28E01ED17B4C958005806FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2F932EB17B4CADA00231A57 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKiwi.a; sourceTree = "<group>"; };
+		C2F932EE17B4CAE700231A57 /* Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kiwi.h; sourceTree = "<group>"; };
+		C2F932EF17B4CAE700231A57 /* KiwiBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiwiBlockMacros.h; sourceTree = "<group>"; };
+		C2F932F017B4CAE700231A57 /* KiwiConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiwiConfiguration.h; sourceTree = "<group>"; };
+		C2F932F117B4CAE700231A57 /* KiwiMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiwiMacros.h; sourceTree = "<group>"; };
+		C2F932F217B4CAE700231A57 /* KWAfterAllNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWAfterAllNode.h; sourceTree = "<group>"; };
+		C2F932F317B4CAE700231A57 /* KWAfterEachNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWAfterEachNode.h; sourceTree = "<group>"; };
+		C2F932F417B4CAE700231A57 /* KWAny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWAny.h; sourceTree = "<group>"; };
+		C2F932F517B4CAE700231A57 /* KWAsyncVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWAsyncVerifier.h; sourceTree = "<group>"; };
+		C2F932F617B4CAE700231A57 /* KWBeBetweenMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeBetweenMatcher.h; sourceTree = "<group>"; };
+		C2F932F717B4CAE700231A57 /* KWBeEmptyMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeEmptyMatcher.h; sourceTree = "<group>"; };
+		C2F932F817B4CAE700231A57 /* KWBeforeAllNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeforeAllNode.h; sourceTree = "<group>"; };
+		C2F932F917B4CAE700231A57 /* KWBeforeEachNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeforeEachNode.h; sourceTree = "<group>"; };
+		C2F932FA17B4CAE700231A57 /* KWBeIdenticalToMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeIdenticalToMatcher.h; sourceTree = "<group>"; };
+		C2F932FB17B4CAE700231A57 /* KWBeKindOfClassMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeKindOfClassMatcher.h; sourceTree = "<group>"; };
+		C2F932FC17B4CAE700231A57 /* KWBeMemberOfClassMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeMemberOfClassMatcher.h; sourceTree = "<group>"; };
+		C2F932FD17B4CAE700231A57 /* KWBeNilMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeNilMatcher.h; sourceTree = "<group>"; };
+		C2F932FE17B4CAE700231A57 /* KWBeNonNilMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeNonNilMatcher.h; sourceTree = "<group>"; };
+		C2F932FF17B4CAE700231A57 /* KWBeSubclassOfClassMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeSubclassOfClassMatcher.h; sourceTree = "<group>"; };
+		C2F9330017B4CAE700231A57 /* KWBeTrueMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeTrueMatcher.h; sourceTree = "<group>"; };
+		C2F9330117B4CAE700231A57 /* KWBeWithinMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeWithinMatcher.h; sourceTree = "<group>"; };
+		C2F9330217B4CAE700231A57 /* KWBeZeroMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeZeroMatcher.h; sourceTree = "<group>"; };
+		C2F9330317B4CAE700231A57 /* KWBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBlock.h; sourceTree = "<group>"; };
+		C2F9330417B4CAE700231A57 /* KWBlockNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBlockNode.h; sourceTree = "<group>"; };
+		C2F9330517B4CAE700231A57 /* KWBlockRaiseMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBlockRaiseMatcher.h; sourceTree = "<group>"; };
+		C2F9330617B4CAE700231A57 /* KWCallSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWCallSite.h; sourceTree = "<group>"; };
+		C2F9330717B4CAE700231A57 /* KWCaptureSpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWCaptureSpy.h; sourceTree = "<group>"; };
+		C2F9330817B4CAE700231A57 /* KWChangeMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWChangeMatcher.h; sourceTree = "<group>"; };
+		C2F9330917B4CAE700231A57 /* KWConformToProtocolMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWConformToProtocolMatcher.h; sourceTree = "<group>"; };
+		C2F9330A17B4CAE700231A57 /* KWContainMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWContainMatcher.h; sourceTree = "<group>"; };
+		C2F9330B17B4CAE700231A57 /* KWContainStringMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWContainStringMatcher.h; sourceTree = "<group>"; };
+		C2F9330C17B4CAE700231A57 /* KWContextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWContextNode.h; sourceTree = "<group>"; };
+		C2F9330D17B4CAE700231A57 /* KWCountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWCountType.h; sourceTree = "<group>"; };
+		C2F9330E17B4CAE700231A57 /* KWDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWDeviceInfo.h; sourceTree = "<group>"; };
+		C2F9330F17B4CAE700231A57 /* KWEqualMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWEqualMatcher.h; sourceTree = "<group>"; };
+		C2F9331017B4CAE700231A57 /* KWExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExample.h; sourceTree = "<group>"; };
+		C2F9331117B4CAE700231A57 /* KWExampleDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExampleDelegate.h; sourceTree = "<group>"; };
+		C2F9331217B4CAE700231A57 /* KWExampleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExampleNode.h; sourceTree = "<group>"; };
+		C2F9331317B4CAE700231A57 /* KWExampleNodeVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExampleNodeVisitor.h; sourceTree = "<group>"; };
+		C2F9331417B4CAE700231A57 /* KWExampleSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExampleSuite.h; sourceTree = "<group>"; };
+		C2F9331517B4CAE700231A57 /* KWExampleSuiteBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExampleSuiteBuilder.h; sourceTree = "<group>"; };
+		C2F9331617B4CAE700231A57 /* KWExistVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExistVerifier.h; sourceTree = "<group>"; };
+		C2F9331717B4CAE700231A57 /* KWExpectationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWExpectationType.h; sourceTree = "<group>"; };
+		C2F9331817B4CAE700231A57 /* KWFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWFailure.h; sourceTree = "<group>"; };
+		C2F9331917B4CAE700231A57 /* KWFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWFormatter.h; sourceTree = "<group>"; };
+		C2F9331A17B4CAE700231A57 /* KWFutureObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWFutureObject.h; sourceTree = "<group>"; };
+		C2F9331B17B4CAE700231A57 /* KWGenericMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGenericMatcher.h; sourceTree = "<group>"; };
+		C2F9331C17B4CAE700231A57 /* KWGenericMatchEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGenericMatchEvaluator.h; sourceTree = "<group>"; };
+		C2F9331D17B4CAE700231A57 /* KWGenericMatchingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGenericMatchingAdditions.h; sourceTree = "<group>"; };
+		C2F9331E17B4CAE700231A57 /* KWHaveMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWHaveMatcher.h; sourceTree = "<group>"; };
+		C2F9331F17B4CAE700231A57 /* KWHaveValueMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWHaveValueMatcher.h; sourceTree = "<group>"; };
+		C2F9332017B4CAE700231A57 /* KWInequalityMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWInequalityMatcher.h; sourceTree = "<group>"; };
+		C2F9332117B4CAE700231A57 /* KWIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWIntercept.h; sourceTree = "<group>"; };
+		C2F9332217B4CAE700231A57 /* KWInvocationCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWInvocationCapturer.h; sourceTree = "<group>"; };
+		C2F9332317B4CAE700231A57 /* KWItNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWItNode.h; sourceTree = "<group>"; };
+		C2F9332417B4CAE700231A57 /* KWMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMatcher.h; sourceTree = "<group>"; };
+		C2F9332517B4CAE700231A57 /* KWMatcherFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMatcherFactory.h; sourceTree = "<group>"; };
+		C2F9332617B4CAE700231A57 /* KWMatchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMatchers.h; sourceTree = "<group>"; };
+		C2F9332717B4CAE700231A57 /* KWMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMatching.h; sourceTree = "<group>"; };
+		C2F9332817B4CAE700231A57 /* KWMatchVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMatchVerifier.h; sourceTree = "<group>"; };
+		C2F9332917B4CAE700231A57 /* KWMessagePattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMessagePattern.h; sourceTree = "<group>"; };
+		C2F9332A17B4CAE700231A57 /* KWMessageSpying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMessageSpying.h; sourceTree = "<group>"; };
+		C2F9332B17B4CAE700231A57 /* KWMessageTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMessageTracker.h; sourceTree = "<group>"; };
+		C2F9332C17B4CAE700231A57 /* KWMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWMock.h; sourceTree = "<group>"; };
+		C2F9332D17B4CAE700231A57 /* KWNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWNull.h; sourceTree = "<group>"; };
+		C2F9332E17B4CAE700231A57 /* KWObjCUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWObjCUtilities.h; sourceTree = "<group>"; };
+		C2F9332F17B4CAE700231A57 /* KWPendingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWPendingNode.h; sourceTree = "<group>"; };
+		C2F9333017B4CAE700231A57 /* KWProbe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWProbe.h; sourceTree = "<group>"; };
+		C2F9333117B4CAE700231A57 /* KWProbePoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWProbePoller.h; sourceTree = "<group>"; };
+		C2F9333217B4CAE700231A57 /* KWRaiseMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRaiseMatcher.h; sourceTree = "<group>"; };
+		C2F9333317B4CAE700231A57 /* KWReceiveMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWReceiveMatcher.h; sourceTree = "<group>"; };
+		C2F9333417B4CAE700231A57 /* KWRegisterMatchersNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRegisterMatchersNode.h; sourceTree = "<group>"; };
+		C2F9333517B4CAE700231A57 /* KWRegularExpressionPatternMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRegularExpressionPatternMatcher.h; sourceTree = "<group>"; };
+		C2F9333617B4CAE700231A57 /* KWReporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWReporting.h; sourceTree = "<group>"; };
+		C2F9333717B4CAE700231A57 /* KWRespondToSelectorMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRespondToSelectorMatcher.h; sourceTree = "<group>"; };
+		C2F9333817B4CAE700231A57 /* KWSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWSpec.h; sourceTree = "<group>"; };
+		C2F9333917B4CAE700231A57 /* KWStringContainsMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStringContainsMatcher.h; sourceTree = "<group>"; };
+		C2F9333A17B4CAE700231A57 /* KWStringPrefixMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStringPrefixMatcher.h; sourceTree = "<group>"; };
+		C2F9333B17B4CAE700231A57 /* KWStringUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStringUtilities.h; sourceTree = "<group>"; };
+		C2F9333C17B4CAE700231A57 /* KWStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStub.h; sourceTree = "<group>"; };
+		C2F9333D17B4CAE700231A57 /* KWSymbolicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWSymbolicator.h; sourceTree = "<group>"; };
+		C2F9333E17B4CAE700231A57 /* KWUserDefinedMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWUserDefinedMatcher.h; sourceTree = "<group>"; };
+		C2F9333F17B4CAE700231A57 /* KWValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWValue.h; sourceTree = "<group>"; };
+		C2F9334017B4CAE700231A57 /* KWVerifying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWVerifying.h; sourceTree = "<group>"; };
+		C2F9334117B4CAE700231A57 /* KWWorkarounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWWorkarounds.h; sourceTree = "<group>"; };
+		C2F9334217B4CAE700231A57 /* NSInvocation+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+KiwiAdditions.h"; sourceTree = "<group>"; };
+		C2F9334317B4CAE700231A57 /* NSInvocation+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+OCMAdditions.h"; sourceTree = "<group>"; };
+		C2F9334417B4CAE700231A57 /* NSMethodSignature+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+KiwiAdditions.h"; sourceTree = "<group>"; };
+		C2F9334517B4CAE700231A57 /* NSNumber+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+KiwiAdditions.h"; sourceTree = "<group>"; };
+		C2F9334617B4CAE700231A57 /* NSObject+KiwiMockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KiwiMockAdditions.h"; sourceTree = "<group>"; };
+		C2F9334717B4CAE700231A57 /* NSObject+KiwiSpyAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KiwiSpyAdditions.h"; sourceTree = "<group>"; };
+		C2F9334817B4CAE700231A57 /* NSObject+KiwiStubAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KiwiStubAdditions.h"; sourceTree = "<group>"; };
+		C2F9334917B4CAE700231A57 /* NSObject+KiwiVerifierAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KiwiVerifierAdditions.h"; sourceTree = "<group>"; };
+		C2F9334A17B4CAE700231A57 /* NSProxy+KiwiVerifierAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProxy+KiwiVerifierAdditions.h"; sourceTree = "<group>"; };
+		C2F9334B17B4CAE700231A57 /* NSValue+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+KiwiAdditions.h"; sourceTree = "<group>"; };
+		C2F9334C17B4CAE700231A57 /* SenTestSuite+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SenTestSuite+KiwiAdditions.h"; sourceTree = "<group>"; };
+		C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceSpec.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C28E01B917B4C958005806FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28E01C017B4C958005806FE /* UIKit.framework in Frameworks */,
+				C28E01C217B4C958005806FE /* Foundation.framework in Frameworks */,
+				C28E01C417B4C958005806FE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28E01DE17B4C958005806FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28E01E417B4C958005806FE /* SenTestingKit.framework in Frameworks */,
+				C28E01E517B4C958005806FE /* UIKit.framework in Frameworks */,
+				C28E01E617B4C958005806FE /* Foundation.framework in Frameworks */,
+				C2F932EC17B4CADA00231A57 /* libKiwi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C28E01B317B4C958005806FE = {
+			isa = PBXGroup;
+			children = (
+				C2F932ED17B4CAE700231A57 /* Kiwi */,
+				C28E01C517B4C958005806FE /* RedditScroller */,
+				C28E01E917B4C958005806FE /* RedditScrollerTests */,
+				C28E01BE17B4C958005806FE /* Frameworks */,
+				C28E01BD17B4C958005806FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C28E01BD17B4C958005806FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C28E01BC17B4C958005806FE /* RedditScroller.app */,
+				C28E01E217B4C958005806FE /* RedditScrollerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C28E01BE17B4C958005806FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2F932EB17B4CADA00231A57 /* libKiwi.a */,
+				C28E01BF17B4C958005806FE /* UIKit.framework */,
+				C28E01C117B4C958005806FE /* Foundation.framework */,
+				C28E01C317B4C958005806FE /* CoreGraphics.framework */,
+				C28E01E317B4C958005806FE /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C28E01C517B4C958005806FE /* RedditScroller */ = {
+			isa = PBXGroup;
+			children = (
+				C28E01CE17B4C958005806FE /* RSAppDelegate.h */,
+				C28E01CF17B4C958005806FE /* RSAppDelegate.m */,
+				C28E01D717B4C958005806FE /* RSViewController.h */,
+				C28E01D817B4C958005806FE /* RSViewController.m */,
+				C28E01DA17B4C958005806FE /* RSViewController.xib */,
+				C28E01C617B4C958005806FE /* Supporting Files */,
+			);
+			path = RedditScroller;
+			sourceTree = "<group>";
+		};
+		C28E01C617B4C958005806FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C28E01C717B4C958005806FE /* RedditScroller-Info.plist */,
+				C28E01C817B4C958005806FE /* InfoPlist.strings */,
+				C28E01CB17B4C958005806FE /* main.m */,
+				C28E01CD17B4C958005806FE /* RedditScroller-Prefix.pch */,
+				C28E01D117B4C958005806FE /* Default.png */,
+				C28E01D317B4C958005806FE /* Default@2x.png */,
+				C28E01D517B4C958005806FE /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C28E01E917B4C958005806FE /* RedditScrollerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C28E01EA17B4C958005806FE /* Supporting Files */,
+				C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */,
+			);
+			path = RedditScrollerTests;
+			sourceTree = "<group>";
+		};
+		C28E01EA17B4C958005806FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C28E01EB17B4C958005806FE /* RedditScrollerTests-Info.plist */,
+				C28E01EC17B4C958005806FE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2F932ED17B4CAE700231A57 /* Kiwi */ = {
+			isa = PBXGroup;
+			children = (
+				C2F932EE17B4CAE700231A57 /* Kiwi.h */,
+				C2F932EF17B4CAE700231A57 /* KiwiBlockMacros.h */,
+				C2F932F017B4CAE700231A57 /* KiwiConfiguration.h */,
+				C2F932F117B4CAE700231A57 /* KiwiMacros.h */,
+				C2F932F217B4CAE700231A57 /* KWAfterAllNode.h */,
+				C2F932F317B4CAE700231A57 /* KWAfterEachNode.h */,
+				C2F932F417B4CAE700231A57 /* KWAny.h */,
+				C2F932F517B4CAE700231A57 /* KWAsyncVerifier.h */,
+				C2F932F617B4CAE700231A57 /* KWBeBetweenMatcher.h */,
+				C2F932F717B4CAE700231A57 /* KWBeEmptyMatcher.h */,
+				C2F932F817B4CAE700231A57 /* KWBeforeAllNode.h */,
+				C2F932F917B4CAE700231A57 /* KWBeforeEachNode.h */,
+				C2F932FA17B4CAE700231A57 /* KWBeIdenticalToMatcher.h */,
+				C2F932FB17B4CAE700231A57 /* KWBeKindOfClassMatcher.h */,
+				C2F932FC17B4CAE700231A57 /* KWBeMemberOfClassMatcher.h */,
+				C2F932FD17B4CAE700231A57 /* KWBeNilMatcher.h */,
+				C2F932FE17B4CAE700231A57 /* KWBeNonNilMatcher.h */,
+				C2F932FF17B4CAE700231A57 /* KWBeSubclassOfClassMatcher.h */,
+				C2F9330017B4CAE700231A57 /* KWBeTrueMatcher.h */,
+				C2F9330117B4CAE700231A57 /* KWBeWithinMatcher.h */,
+				C2F9330217B4CAE700231A57 /* KWBeZeroMatcher.h */,
+				C2F9330317B4CAE700231A57 /* KWBlock.h */,
+				C2F9330417B4CAE700231A57 /* KWBlockNode.h */,
+				C2F9330517B4CAE700231A57 /* KWBlockRaiseMatcher.h */,
+				C2F9330617B4CAE700231A57 /* KWCallSite.h */,
+				C2F9330717B4CAE700231A57 /* KWCaptureSpy.h */,
+				C2F9330817B4CAE700231A57 /* KWChangeMatcher.h */,
+				C2F9330917B4CAE700231A57 /* KWConformToProtocolMatcher.h */,
+				C2F9330A17B4CAE700231A57 /* KWContainMatcher.h */,
+				C2F9330B17B4CAE700231A57 /* KWContainStringMatcher.h */,
+				C2F9330C17B4CAE700231A57 /* KWContextNode.h */,
+				C2F9330D17B4CAE700231A57 /* KWCountType.h */,
+				C2F9330E17B4CAE700231A57 /* KWDeviceInfo.h */,
+				C2F9330F17B4CAE700231A57 /* KWEqualMatcher.h */,
+				C2F9331017B4CAE700231A57 /* KWExample.h */,
+				C2F9331117B4CAE700231A57 /* KWExampleDelegate.h */,
+				C2F9331217B4CAE700231A57 /* KWExampleNode.h */,
+				C2F9331317B4CAE700231A57 /* KWExampleNodeVisitor.h */,
+				C2F9331417B4CAE700231A57 /* KWExampleSuite.h */,
+				C2F9331517B4CAE700231A57 /* KWExampleSuiteBuilder.h */,
+				C2F9331617B4CAE700231A57 /* KWExistVerifier.h */,
+				C2F9331717B4CAE700231A57 /* KWExpectationType.h */,
+				C2F9331817B4CAE700231A57 /* KWFailure.h */,
+				C2F9331917B4CAE700231A57 /* KWFormatter.h */,
+				C2F9331A17B4CAE700231A57 /* KWFutureObject.h */,
+				C2F9331B17B4CAE700231A57 /* KWGenericMatcher.h */,
+				C2F9331C17B4CAE700231A57 /* KWGenericMatchEvaluator.h */,
+				C2F9331D17B4CAE700231A57 /* KWGenericMatchingAdditions.h */,
+				C2F9331E17B4CAE700231A57 /* KWHaveMatcher.h */,
+				C2F9331F17B4CAE700231A57 /* KWHaveValueMatcher.h */,
+				C2F9332017B4CAE700231A57 /* KWInequalityMatcher.h */,
+				C2F9332117B4CAE700231A57 /* KWIntercept.h */,
+				C2F9332217B4CAE700231A57 /* KWInvocationCapturer.h */,
+				C2F9332317B4CAE700231A57 /* KWItNode.h */,
+				C2F9332417B4CAE700231A57 /* KWMatcher.h */,
+				C2F9332517B4CAE700231A57 /* KWMatcherFactory.h */,
+				C2F9332617B4CAE700231A57 /* KWMatchers.h */,
+				C2F9332717B4CAE700231A57 /* KWMatching.h */,
+				C2F9332817B4CAE700231A57 /* KWMatchVerifier.h */,
+				C2F9332917B4CAE700231A57 /* KWMessagePattern.h */,
+				C2F9332A17B4CAE700231A57 /* KWMessageSpying.h */,
+				C2F9332B17B4CAE700231A57 /* KWMessageTracker.h */,
+				C2F9332C17B4CAE700231A57 /* KWMock.h */,
+				C2F9332D17B4CAE700231A57 /* KWNull.h */,
+				C2F9332E17B4CAE700231A57 /* KWObjCUtilities.h */,
+				C2F9332F17B4CAE700231A57 /* KWPendingNode.h */,
+				C2F9333017B4CAE700231A57 /* KWProbe.h */,
+				C2F9333117B4CAE700231A57 /* KWProbePoller.h */,
+				C2F9333217B4CAE700231A57 /* KWRaiseMatcher.h */,
+				C2F9333317B4CAE700231A57 /* KWReceiveMatcher.h */,
+				C2F9333417B4CAE700231A57 /* KWRegisterMatchersNode.h */,
+				C2F9333517B4CAE700231A57 /* KWRegularExpressionPatternMatcher.h */,
+				C2F9333617B4CAE700231A57 /* KWReporting.h */,
+				C2F9333717B4CAE700231A57 /* KWRespondToSelectorMatcher.h */,
+				C2F9333817B4CAE700231A57 /* KWSpec.h */,
+				C2F9333917B4CAE700231A57 /* KWStringContainsMatcher.h */,
+				C2F9333A17B4CAE700231A57 /* KWStringPrefixMatcher.h */,
+				C2F9333B17B4CAE700231A57 /* KWStringUtilities.h */,
+				C2F9333C17B4CAE700231A57 /* KWStub.h */,
+				C2F9333D17B4CAE700231A57 /* KWSymbolicator.h */,
+				C2F9333E17B4CAE700231A57 /* KWUserDefinedMatcher.h */,
+				C2F9333F17B4CAE700231A57 /* KWValue.h */,
+				C2F9334017B4CAE700231A57 /* KWVerifying.h */,
+				C2F9334117B4CAE700231A57 /* KWWorkarounds.h */,
+				C2F9334217B4CAE700231A57 /* NSInvocation+KiwiAdditions.h */,
+				C2F9334317B4CAE700231A57 /* NSInvocation+OCMAdditions.h */,
+				C2F9334417B4CAE700231A57 /* NSMethodSignature+KiwiAdditions.h */,
+				C2F9334517B4CAE700231A57 /* NSNumber+KiwiAdditions.h */,
+				C2F9334617B4CAE700231A57 /* NSObject+KiwiMockAdditions.h */,
+				C2F9334717B4CAE700231A57 /* NSObject+KiwiSpyAdditions.h */,
+				C2F9334817B4CAE700231A57 /* NSObject+KiwiStubAdditions.h */,
+				C2F9334917B4CAE700231A57 /* NSObject+KiwiVerifierAdditions.h */,
+				C2F9334A17B4CAE700231A57 /* NSProxy+KiwiVerifierAdditions.h */,
+				C2F9334B17B4CAE700231A57 /* NSValue+KiwiAdditions.h */,
+				C2F9334C17B4CAE700231A57 /* SenTestSuite+KiwiAdditions.h */,
+			);
+			path = Kiwi;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C28E01BB17B4C958005806FE /* RedditScroller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C28E01F417B4C958005806FE /* Build configuration list for PBXNativeTarget "RedditScroller" */;
+			buildPhases = (
+				C28E01B817B4C958005806FE /* Sources */,
+				C28E01B917B4C958005806FE /* Frameworks */,
+				C28E01BA17B4C958005806FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedditScroller;
+			productName = RedditScroller;
+			productReference = C28E01BC17B4C958005806FE /* RedditScroller.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C28E01E117B4C958005806FE /* RedditScrollerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C28E01F717B4C958005806FE /* Build configuration list for PBXNativeTarget "RedditScrollerTests" */;
+			buildPhases = (
+				C28E01DD17B4C958005806FE /* Sources */,
+				C28E01DE17B4C958005806FE /* Frameworks */,
+				C28E01DF17B4C958005806FE /* Resources */,
+				C28E01E017B4C958005806FE /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C28E01E817B4C958005806FE /* PBXTargetDependency */,
+			);
+			name = RedditScrollerTests;
+			productName = RedditScrollerTests;
+			productReference = C28E01E217B4C958005806FE /* RedditScrollerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C28E01B417B4C958005806FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RS;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Adam Smith";
+			};
+			buildConfigurationList = C28E01B717B4C958005806FE /* Build configuration list for PBXProject "RedditScroller" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C28E01B317B4C958005806FE;
+			productRefGroup = C28E01BD17B4C958005806FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C28E01BB17B4C958005806FE /* RedditScroller */,
+				C28E01E117B4C958005806FE /* RedditScrollerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C28E01BA17B4C958005806FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28E01CA17B4C958005806FE /* InfoPlist.strings in Resources */,
+				C28E01D217B4C958005806FE /* Default.png in Resources */,
+				C28E01D417B4C958005806FE /* Default@2x.png in Resources */,
+				C28E01D617B4C958005806FE /* Default-568h@2x.png in Resources */,
+				C28E01DC17B4C958005806FE /* RSViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28E01DF17B4C958005806FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28E01EE17B4C958005806FE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C28E01E017B4C958005806FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C28E01B817B4C958005806FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28E01CC17B4C958005806FE /* main.m in Sources */,
+				C28E01D017B4C958005806FE /* RSAppDelegate.m in Sources */,
+				C28E01D917B4C958005806FE /* RSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28E01DD17B4C958005806FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2F9334E17B4CB2600231A57 /* WebServiceSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C28E01E817B4C958005806FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C28E01BB17B4C958005806FE /* RedditScroller */;
+			targetProxy = C28E01E717B4C958005806FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C28E01C817B4C958005806FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C28E01C917B4C958005806FE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C28E01DA17B4C958005806FE /* RSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C28E01DB17B4C958005806FE /* en */,
+			);
+			name = RSViewController.xib;
+			sourceTree = "<group>";
+		};
+		C28E01EC17B4C958005806FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C28E01ED17B4C958005806FE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C28E01F217B4C958005806FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C28E01F317B4C958005806FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C28E01F517B4C958005806FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				INFOPLIST_FILE = "RedditScroller/RedditScroller-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C28E01F617B4C958005806FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				INFOPLIST_FILE = "RedditScroller/RedditScroller-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C28E01F817B4C958005806FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RedditScroller.app/RedditScroller";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				INFOPLIST_FILE = "RedditScrollerTests/RedditScrollerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = $SRCROOT/Kiwi;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C28E01F917B4C958005806FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RedditScroller.app/RedditScroller";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				INFOPLIST_FILE = "RedditScrollerTests/RedditScrollerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = $SRCROOT/Kiwi;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C28E01B717B4C958005806FE /* Build configuration list for PBXProject "RedditScroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C28E01F217B4C958005806FE /* Debug */,
+				C28E01F317B4C958005806FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C28E01F417B4C958005806FE /* Build configuration list for PBXNativeTarget "RedditScroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C28E01F517B4C958005806FE /* Debug */,
+				C28E01F617B4C958005806FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C28E01F717B4C958005806FE /* Build configuration list for PBXNativeTarget "RedditScrollerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C28E01F817B4C958005806FE /* Debug */,
+				C28E01F917B4C958005806FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C28E01B417B4C958005806FE /* Project object */;
+}
