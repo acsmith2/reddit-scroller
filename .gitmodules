@@ -1,0 +1,3 @@
+[submodule "RedditScroller/Nocilla"]
+	path = RedditScroller/Nocilla
+	url = https://github.com/luisobo/Nocilla

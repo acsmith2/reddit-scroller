@@ -1,4 +1,5 @@
 #import "Kiwi.h"
+#import "Nocilla.h"
 
 SPEC_BEGIN(MathSpec)
 
