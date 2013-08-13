@@ -22,6 +22,8 @@
 		C28E01E517B4C958005806FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01BF17B4C958005806FE /* UIKit.framework */; };
 		C28E01E617B4C958005806FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C117B4C958005806FE /* Foundation.framework */; };
 		C28E01EE17B4C958005806FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28E01EC17B4C958005806FE /* InfoPlist.strings */; };
+		C2AA795817B9D9DB00164509 /* RSRedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA795717B9D9DB00164509 /* RSRedditPost.m */; };
+		C2AA796017B9ED1700164509 /* RSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA795F17B9ED1700164509 /* RSConstants.m */; };
 		C2F932EC17B4CADA00231A57 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F932EB17B4CADA00231A57 /* libKiwi.a */; };
 		C2F9334E17B4CB2600231A57 /* WebServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */; };
 		C2F933F417B4CE0300231A57 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F933F317B4CE0300231A57 /* SystemConfiguration.framework */; };
@@ -82,6 +84,10 @@
 		C28E01E317B4C958005806FE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C28E01EB17B4C958005806FE /* RedditScrollerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditScrollerTests-Info.plist"; sourceTree = "<group>"; };
 		C28E01ED17B4C958005806FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2AA795617B9D9DB00164509 /* RSRedditPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRedditPost.h; sourceTree = "<group>"; };
+		C2AA795717B9D9DB00164509 /* RSRedditPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRedditPost.m; sourceTree = "<group>"; };
+		C2AA795E17B9ED1700164509 /* RSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSConstants.h; sourceTree = "<group>"; };
+		C2AA795F17B9ED1700164509 /* RSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSConstants.m; sourceTree = "<group>"; };
 		C2F932EB17B4CADA00231A57 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKiwi.a; sourceTree = "<group>"; };
 		C2F932EE17B4CAE700231A57 /* Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kiwi.h; sourceTree = "<group>"; };
 		C2F932EF17B4CAE700231A57 /* KiwiBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiwiBlockMacros.h; sourceTree = "<group>"; };
@@ -266,11 +272,7 @@
 		C28E01B317B4C958005806FE = {
 			isa = PBXGroup;
 			children = (
-				C2F9349D17B4CF8E00231A57 /* CFNetwork.framework */,
-				C2F933F517B4CE0C00231A57 /* Security.framework */,
-				C2F933F317B4CE0300231A57 /* SystemConfiguration.framework */,
-				C2F932ED17B4CAE700231A57 /* Kiwi */,
-				C28E01C517B4C958005806FE /* RedditScroller */,
+				C2AA795417B9D9AE00164509 /* RedditScroller */,
 				C28E01E917B4C958005806FE /* RedditScrollerTests */,
 				C28E01BE17B4C958005806FE /* Frameworks */,
 				C28E01BD17B4C958005806FE /* Products */,
@@ -289,6 +291,9 @@
 		C28E01BE17B4C958005806FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2F9349D17B4CF8E00231A57 /* CFNetwork.framework */,
+				C2F933F517B4CE0C00231A57 /* Security.framework */,
+				C2F933F317B4CE0300231A57 /* SystemConfiguration.framework */,
 				C2F932EB17B4CADA00231A57 /* libKiwi.a */,
 				C28E01BF17B4C958005806FE /* UIKit.framework */,
 				C28E01C117B4C958005806FE /* Foundation.framework */,
@@ -298,16 +303,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C28E01C517B4C958005806FE /* RedditScroller */ = {
+		C28E01C517B4C958005806FE /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				C28E01CE17B4C958005806FE /* RSAppDelegate.h */,
 				C28E01CF17B4C958005806FE /* RSAppDelegate.m */,
-				C28E01D717B4C958005806FE /* RSViewController.h */,
-				C28E01D817B4C958005806FE /* RSViewController.m */,
-				C28E01DA17B4C958005806FE /* RSViewController.xib */,
 				C28E01C617B4C958005806FE /* Supporting Files */,
 			);
+			name = "App Delegate";
 			path = RedditScroller;
 			sourceTree = "<group>";
 		};
@@ -328,6 +331,7 @@
 		C28E01E917B4C958005806FE /* RedditScrollerTests */ = {
 			isa = PBXGroup;
 			children = (
+				C2AA795317B9D97900164509 /* Third Party */,
 				C2F9344A17B4CF3600231A57 /* Nocilla */,
 				C28E01EA17B4C958005806FE /* Supporting Files */,
 				C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */,
@@ -342,6 +346,55 @@
 				C28E01EC17B4C958005806FE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2AA795217B9D96D00164509 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C28E01D717B4C958005806FE /* RSViewController.h */,
+				C28E01D817B4C958005806FE /* RSViewController.m */,
+				C28E01DA17B4C958005806FE /* RSViewController.xib */,
+			);
+			name = "View Controllers";
+			path = RedditScroller;
+			sourceTree = "<group>";
+		};
+		C2AA795317B9D97900164509 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				C2F932ED17B4CAE700231A57 /* Kiwi */,
+			);
+			name = "Third Party";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C2AA795417B9D9AE00164509 /* RedditScroller */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA795917B9E09D00164509 /* Utilities */,
+				C2AA795517B9D9C300164509 /* Data Model */,
+				C2AA795217B9D96D00164509 /* View Controllers */,
+				C28E01C517B4C958005806FE /* App Delegate */,
+			);
+			name = RedditScroller;
+			sourceTree = "<group>";
+		};
+		C2AA795517B9D9C300164509 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA795617B9D9DB00164509 /* RSRedditPost.h */,
+				C2AA795717B9D9DB00164509 /* RSRedditPost.m */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		C2AA795917B9E09D00164509 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA795E17B9ED1700164509 /* RSConstants.h */,
+				C2AA795F17B9ED1700164509 /* RSConstants.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		C2F932ED17B4CAE700231A57 /* Kiwi */ = {
@@ -690,6 +743,8 @@
 				C28E01CC17B4C958005806FE /* main.m in Sources */,
 				C28E01D017B4C958005806FE /* RSAppDelegate.m in Sources */,
 				C28E01D917B4C958005806FE /* RSViewController.m in Sources */,
+				C2AA795817B9D9DB00164509 /* RSRedditPost.m in Sources */,
+				C2AA796017B9ED1700164509 /* RSConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,6 +904,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "RedditScrollerTests/RedditScrollerTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -872,6 +929,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "RedditScrollerTests/RedditScrollerTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
