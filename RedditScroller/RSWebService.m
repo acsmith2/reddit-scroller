@@ -7,7 +7,6 @@
 //
 
 #import "RSWebService.h"
-
 @implementation RSWebService
 
 + (RSWebService*) sharedService
@@ -37,21 +36,13 @@
 
 -(void) retrieveRedditDataAfter:(NSString*)postName withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
 {
-	
+
 }
 
--(void)retrieveNextPageOfRedditData withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
-{
-	[self retrieveRedditDataAfter:self.lastItemName withSuccessBlock:^(NSArray *dataObjects) {
-		<#code#>
-	} andFailureBlock:^(NSString *message, NSError *error) {
-		<#code#>
-	}];
-}
 
 -(void) retrieveLatestRedditDataWithSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
 {
-	
+	[self retrieveRedditDataAfter:nil withSuccessBlock:successBlock andFailureBlock:failureBlock];
 }
 
 @end
