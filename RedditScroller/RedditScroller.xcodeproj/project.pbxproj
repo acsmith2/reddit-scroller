@@ -24,6 +24,10 @@
 		C28E01EE17B4C958005806FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28E01EC17B4C958005806FE /* InfoPlist.strings */; };
 		C2AA795817B9D9DB00164509 /* RSRedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA795717B9D9DB00164509 /* RSRedditPost.m */; };
 		C2AA796017B9ED1700164509 /* RSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA795F17B9ED1700164509 /* RSConstants.m */; };
+		C2AA796417BA0E4400164509 /* RSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA796317BA0E4400164509 /* RSDataManager.m */; };
+		C2AA796617BA11E500164509 /* DataManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA796517BA11E500164509 /* DataManagerSpec.m */; };
+		C2AA797017BB621400164509 /* RSWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA796F17BB621400164509 /* RSWebService.m */; };
+		C2AA797217BB62F400164509 /* RedditPostSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA797117BB62F400164509 /* RedditPostSpec.m */; };
 		C2F932EC17B4CADA00231A57 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F932EB17B4CADA00231A57 /* libKiwi.a */; };
 		C2F9334E17B4CB2600231A57 /* WebServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */; };
 		C2F933F417B4CE0300231A57 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F933F317B4CE0300231A57 /* SystemConfiguration.framework */; };
@@ -88,6 +92,12 @@
 		C2AA795717B9D9DB00164509 /* RSRedditPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRedditPost.m; sourceTree = "<group>"; };
 		C2AA795E17B9ED1700164509 /* RSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSConstants.h; sourceTree = "<group>"; };
 		C2AA795F17B9ED1700164509 /* RSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSConstants.m; sourceTree = "<group>"; };
+		C2AA796217BA0E4400164509 /* RSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDataManager.h; sourceTree = "<group>"; };
+		C2AA796317BA0E4400164509 /* RSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDataManager.m; sourceTree = "<group>"; };
+		C2AA796517BA11E500164509 /* DataManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManagerSpec.m; sourceTree = "<group>"; };
+		C2AA796E17BB621400164509 /* RSWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSWebService.h; sourceTree = "<group>"; };
+		C2AA796F17BB621400164509 /* RSWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSWebService.m; sourceTree = "<group>"; };
+		C2AA797117BB62F400164509 /* RedditPostSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditPostSpec.m; sourceTree = "<group>"; };
 		C2F932EB17B4CADA00231A57 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKiwi.a; sourceTree = "<group>"; };
 		C2F932EE17B4CAE700231A57 /* Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kiwi.h; sourceTree = "<group>"; };
 		C2F932EF17B4CAE700231A57 /* KiwiBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiwiBlockMacros.h; sourceTree = "<group>"; };
@@ -335,6 +345,8 @@
 				C2F9344A17B4CF3600231A57 /* Nocilla */,
 				C28E01EA17B4C958005806FE /* Supporting Files */,
 				C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */,
+				C2AA797117BB62F400164509 /* RedditPostSpec.m */,
+				C2AA796517BA11E500164509 /* DataManagerSpec.m */,
 			);
 			path = RedditScrollerTests;
 			sourceTree = "<group>";
@@ -382,8 +394,10 @@
 		C2AA795517B9D9C300164509 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2AA796D17BB61FC00164509 /* Web Service */,
 				C2AA795617B9D9DB00164509 /* RSRedditPost.h */,
 				C2AA795717B9D9DB00164509 /* RSRedditPost.m */,
+				C2AA796117BA0E2D00164509 /* Data Manager */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -395,6 +409,24 @@
 				C2AA795F17B9ED1700164509 /* RSConstants.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		C2AA796117BA0E2D00164509 /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA796217BA0E4400164509 /* RSDataManager.h */,
+				C2AA796317BA0E4400164509 /* RSDataManager.m */,
+			);
+			name = "Data Manager";
+			sourceTree = "<group>";
+		};
+		C2AA796D17BB61FC00164509 /* Web Service */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA796E17BB621400164509 /* RSWebService.h */,
+				C2AA796F17BB621400164509 /* RSWebService.m */,
+			);
+			name = "Web Service";
 			sourceTree = "<group>";
 		};
 		C2F932ED17B4CAE700231A57 /* Kiwi */ = {
@@ -745,6 +777,8 @@
 				C28E01D917B4C958005806FE /* RSViewController.m in Sources */,
 				C2AA795817B9D9DB00164509 /* RSRedditPost.m in Sources */,
 				C2AA796017B9ED1700164509 /* RSConstants.m in Sources */,
+				C2AA796417BA0E4400164509 /* RSDataManager.m in Sources */,
+				C2AA797017BB621400164509 /* RSWebService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +809,8 @@
 				C2F9349A17B4CF3600231A57 /* NSString+Matcheable.m in Sources */,
 				C2F9349B17B4CF3600231A57 /* LSStubRequest.m in Sources */,
 				C2F9349C17B4CF3600231A57 /* LSStubResponse.m in Sources */,
+				C2AA796617BA11E500164509 /* DataManagerSpec.m in Sources */,
+				C2AA797217BB62F400164509 /* RedditPostSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
