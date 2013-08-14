@@ -7,6 +7,7 @@
 //
 
 #import "RSDataManager.h"
+#import "RSWebService.h"
 
 @interface RSDataManager ()
 
@@ -39,14 +40,23 @@
 	return self;
 }
 
--(void)refreshRedditData
+-(void)refreshRedditDataWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock
 {
-	[self.posts removeAllObjects];
+	[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects) {
+		[self.posts setArray:dataObjects];
+		if (successBlock) {
+			successBlock();
+		}
+	} andFailureBlock:^(NSString *message, NSError *error) {
+		if (failureBlock) {
+			failureBlock(message);
+		}
+	}];
 }
 
 -(NSArray*)redditData
 {
-	return [NSArray arrayWithArray:self.posts];
+	return self.posts;
 }
 
 @end

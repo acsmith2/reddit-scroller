@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
 
 typedef void (^RSArrayNetworkSuccessBlock) (NSArray* dataObjects);
 typedef void (^RSNetworkFailureBlock) (NSString* message, NSError *error);
-
 
 @interface RSWebService : NSObject
 
 +(RSWebService*)sharedService;
 
 -(void) retrieveLatestRedditDataWithSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock;
--(void) retrieveNextPageOfRedditDataFrom:(NSString*)postName withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock;
+-(void) retrieveRedditDataAfter:(NSString*)postName withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock;
+
 @end

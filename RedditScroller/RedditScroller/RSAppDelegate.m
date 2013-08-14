@@ -15,7 +15,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+	
+	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+	
 	self.viewController = [[RSViewController alloc] initWithNibName:@"RSViewController" bundle:nil];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
@@ -47,6 +49,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+void uncaughtExceptionHandler(NSException *exception) {
+	NSLog(@"Uncaught Exception Stack Trace: %@", [exception callStackSymbols]);
 }
 
 @end

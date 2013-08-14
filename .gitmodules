@@ -1,3 +1,6 @@
 [submodule "RedditScroller/Nocilla"]
 	path = RedditScroller/Nocilla
 	url = https://github.com/luisobo/Nocilla
+[submodule "RedditScroller/AFNetworking"]
+	path = RedditScroller/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking

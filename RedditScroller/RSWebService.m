@@ -7,6 +7,9 @@
 //
 
 #import "RSWebService.h"
+#import "RSRedditPost.h"
+#import "RSConstants.h"
+
 @implementation RSWebService
 
 + (RSWebService*) sharedService
@@ -33,10 +36,57 @@
 	return self;
 }
 
+-(NSString*)redditUrlPathWithAfterParameter:(NSString*)param
+{
+	NSString* url = kRSRedditApiUrl;
+	if (param != nil) {
+		return [NSString stringWithFormat:@"%@?after=%@",url,param];
+	} else {
+		return url;
+	}
+}
+
+
+-(NSURLRequest*)createJsonGetUrlRequestWithAfterParam:(NSString*)param
+{
+	NSString* urlString = [self redditUrlPathWithAfterParameter:param];
+
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+	[request setHTTPMethod:@"GET"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+	
+	return request;
+}
+
+
 
 -(void) retrieveRedditDataAfter:(NSString*)postName withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
 {
-
+	NSURLRequest* request = [self createJsonGetUrlRequestWithAfterParam:postName];
+	AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+		
+		NSDictionary* listingData = JSON[kRSDataKey];
+		NSArray* dataChildren = listingData[kRSChildrenKey];
+		
+		NSMutableArray* resultsArray = [NSMutableArray array];
+		
+		for (NSDictionary* postDictionary in dataChildren) {
+			NSLog(@"about to create post");
+			RSRedditPost *newPost = [[RSRedditPost alloc] initWithDictionary:postDictionary];
+			if (newPost) {
+				[resultsArray addObject:newPost];
+			}
+		}
+		
+		if (successBlock) {
+				successBlock(resultsArray);
+		}
+	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		if (failureBlock) {
+			failureBlock(@"Failed to retrieve data from Reddit.",error);
+		}
+	}];
+	[operation start];
 }
 
 

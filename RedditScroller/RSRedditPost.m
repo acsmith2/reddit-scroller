@@ -13,16 +13,15 @@
 
 -(id)initWithDictionary:(NSDictionary*)dictionary
 {
-	NSDictionary *dataDictionary = dictionary[kSTDataKey];
 	
-	NSLog(@"dataDictionary: %@",dataDictionary);
-	NSLog(@"title: %@",dataDictionary[@"title"]);
+	NSDictionary *dataDictionary = dictionary[kRSDataKey] ? dictionary[kRSDataKey] : nil;
+
 	if (!dataDictionary[kRSIsSelfKey]) {
 		self.isSelfText = false;
 	} else {
 		self.isSelfText = [dataDictionary[kRSIsSelfKey] boolValue];
 	}
-
+	NSLog(@"comments");
 	if (!dataDictionary[kRSNumCommentsKey]) {
 		self.numberOfComments = 0;
 	} else {
@@ -34,6 +33,7 @@
 	} else {
 		self.isNSFW = [dataDictionary[kRSNSFWKey] boolValue];
 	}
+	NSLog(@"selftext");
 
 	self.selftext = dataDictionary[kRSSelfTextKey] ? dataDictionary[kRSSelfTextKey] : @"";
 	self.subreddit = dataDictionary[kRSSubredditKey] ? dataDictionary[kRSSubredditKey] : @"";
@@ -42,7 +42,7 @@
 	self.name = dataDictionary[kRSNameKey] ? dataDictionary[kRSNameKey] : @"";
 	self.url = dataDictionary[kRSURLKey] ? dataDictionary[kRSURLKey] : @"";
 	self.thumbnail_url = dataDictionary[kRSThumbnailKey] ? dataDictionary[kRSThumbnailKey] : @"";
-	
+	NSLog(@"about to return");
 	return self;
 }
 

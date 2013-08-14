@@ -21,12 +21,16 @@ describe(@"DataManager", ^{
 	});
 	
 	context(@"when refreshing for the first time", ^{
-		it(@"should replace an empty list with current data", ^{
-			int dataCount = [[RSDataManager sharedManager] redditData].count;
-			[[theValue(dataCount) should] equal:theValue(0)];
-			[[RSDataManager sharedManager] refreshRedditData];
-			dataCount = [[RSDataManager sharedManager] redditData].count;
-			[[theValue(dataCount) should] beGreaterThan:theValue(0)];
+		it(@"should replace an empty list with some current data", ^{
+			__block NSNumber *dataCount = [NSNumber numberWithInt:[[RSDataManager sharedManager] redditData].count];
+			[[dataCount should] equal:[NSNumber numberWithInt:0]];
+			[[RSDataManager sharedManager] refreshRedditDataWithSuccessBlock:^{
+				dataCount = [NSNumber numberWithInt:[[RSDataManager sharedManager] redditData].count];
+			} andFailureBlock:^(NSString *message) {
+				
+			}];
+			
+			[[expectFutureValue(dataCount) shouldEventuallyBeforeTimingOutAfter(4)] beGreaterThan:[NSNumber numberWithInt:0]];
 		});
 	});
 });

@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^RSDataUpdatedSuccessBlock) ();
+typedef void (^RSDataUpdateFailureBlock) (NSString* message);
+
 @interface RSDataManager : NSObject
 
 +(RSDataManager*)sharedManager;
 
--(void)refreshRedditData;
+-(void)refreshRedditDataWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock;
 -(NSArray*)redditData;
 
 @end
