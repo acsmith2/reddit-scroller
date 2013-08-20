@@ -84,31 +84,28 @@
 	AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 		NSLog(@"retrieved data");
 		NSDictionary* listingData = JSON[kRSDataKey];
-		NSArray* dataChildren = listingData[kRSChildrenKey];
-		if (!dataChildren || (dataChildren == (id)[NSNull null])) {
-			if (failureBlock) {
-				failureBlock(@"Could not retrieve data",nil);
-			}
-		}
 		
 		NSString* beforePost = (listingData[kRSBeforeKey] != (id)[NSNull null]) ? listingData[kRSBeforeKey] : nil;
 		NSString* afterPost = (listingData[kRSAfterKey] != (id)[NSNull null]) ? listingData[kRSAfterKey] : nil;
 		
-		NSLog(@"beforePost: %@ afterPost: %@",beforePost,afterPost);
-		
-		NSLog(@"before post == nil %d",beforePost == nil);
-		
+		NSArray* dataChildren = listingData[kRSChildrenKey];
 		NSMutableArray* resultsArray = [NSMutableArray array];
 		
-		for (NSDictionary* postDictionary in dataChildren) {
-			RSRedditPost *newPost = [[RSRedditPost alloc] initWithDictionary:postDictionary];
-			if (newPost) {
-				if (!(newPost.isSelfText && ((newPost.selftext == nil) || ([newPost.selftext isEqualToString:@""])))) {
-					[resultsArray addObject:newPost];
+		if (dataChildren && !(dataChildren == (id)[NSNull null])) {
+			NSLog(@"beforePost: %@ afterPost: %@",beforePost,afterPost);
+			
+			NSLog(@"before post == nil %d",beforePost == nil);
+			
+			
+			for (NSDictionary* postDictionary in dataChildren) {
+				RSRedditPost *newPost = [[RSRedditPost alloc] initWithDictionary:postDictionary];
+				if (newPost) {
+					if (!(newPost.isSelfText && ((newPost.selftext == nil) || ([newPost.selftext isEqualToString:@""])))) {
+						[resultsArray addObject:newPost];
+					}
 				}
 			}
 		}
-		
 		if (successBlock) {
 			successBlock(resultsArray, beforePost, afterPost);
 		}

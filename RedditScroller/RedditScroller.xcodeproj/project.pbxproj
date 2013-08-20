@@ -31,6 +31,10 @@
 		C28E01E517B4C958005806FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01BF17B4C958005806FE /* UIKit.framework */; };
 		C28E01E617B4C958005806FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C117B4C958005806FE /* Foundation.framework */; };
 		C28E01EE17B4C958005806FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C28E01EC17B4C958005806FE /* InfoPlist.strings */; };
+		C29EC1EF17C33D9B006B1EB4 /* RSWebLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29EC1ED17C33D9B006B1EB4 /* RSWebLinkViewController.m */; };
+		C29EC1F017C33D9B006B1EB4 /* RSWebLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29EC1EE17C33D9B006B1EB4 /* RSWebLinkViewController.xib */; };
+		C29EC1FA17C348A7006B1EB4 /* RSSelfTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29EC1F817C348A7006B1EB4 /* RSSelfTextViewController.m */; };
+		C29EC1FB17C348A7006B1EB4 /* RSSelfTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29EC1F917C348A7006B1EB4 /* RSSelfTextViewController.xib */; };
 		C2AA795817B9D9DB00164509 /* RSRedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA795717B9D9DB00164509 /* RSRedditPost.m */; };
 		C2AA796017B9ED1700164509 /* RSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA795F17B9ED1700164509 /* RSConstants.m */; };
 		C2AA796417BA0E4400164509 /* RSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA796317BA0E4400164509 /* RSDataManager.m */; };
@@ -133,6 +137,12 @@
 		C28E01E317B4C958005806FE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C28E01EB17B4C958005806FE /* RedditScrollerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditScrollerTests-Info.plist"; sourceTree = "<group>"; };
 		C28E01ED17B4C958005806FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C29EC1EC17C33D9B006B1EB4 /* RSWebLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSWebLinkViewController.h; sourceTree = SOURCE_ROOT; };
+		C29EC1ED17C33D9B006B1EB4 /* RSWebLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSWebLinkViewController.m; sourceTree = SOURCE_ROOT; };
+		C29EC1EE17C33D9B006B1EB4 /* RSWebLinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSWebLinkViewController.xib; sourceTree = SOURCE_ROOT; };
+		C29EC1F717C348A7006B1EB4 /* RSSelfTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSelfTextViewController.h; sourceTree = "<group>"; };
+		C29EC1F817C348A7006B1EB4 /* RSSelfTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSelfTextViewController.m; sourceTree = "<group>"; };
+		C29EC1F917C348A7006B1EB4 /* RSSelfTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSSelfTextViewController.xib; sourceTree = "<group>"; };
 		C2AA795617B9D9DB00164509 /* RSRedditPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRedditPost.h; sourceTree = "<group>"; };
 		C2AA795717B9D9DB00164509 /* RSRedditPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRedditPost.m; sourceTree = "<group>"; };
 		C2AA795E17B9ED1700164509 /* RSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSConstants.h; sourceTree = "<group>"; };
@@ -434,19 +444,73 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C2AA795217B9D96D00164509 /* View Controllers */ = {
+		C29EC1F117C33E29006B1EB4 /* Post List View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C29EC1F417C33E5B006B1EB4 /* Table Buttons */,
+				C29EC1F317C33E4A006B1EB4 /* Reddit Post Cell */,
+				C29EC1F217C33E3C006B1EB4 /* Post List Data Source */,
 				C28E01D717B4C958005806FE /* RSPostListViewController.h */,
 				C28E01D817B4C958005806FE /* RSPostListViewController.m */,
 				C28E01DA17B4C958005806FE /* RSPostListViewController.xib */,
+			);
+			name = "Post List View Controller";
+			sourceTree = "<group>";
+		};
+		C29EC1F217C33E3C006B1EB4 /* Post List Data Source */ = {
+			isa = PBXGroup;
+			children = (
 				C23A848E17C1D234008BD2B4 /* RSPostListDataSource.h */,
 				C23A848F17C1D234008BD2B4 /* RSPostListDataSource.m */,
+			);
+			name = "Post List Data Source";
+			sourceTree = "<group>";
+		};
+		C29EC1F317C33E4A006B1EB4 /* Reddit Post Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C23A848917C1CD17008BD2B4 /* RSRedditPostCell.xib */,
 				C23A848B17C1CF3B008BD2B4 /* RSRedditPostCell.h */,
 				C23A848C17C1CF3B008BD2B4 /* RSRedditPostCell.m */,
+			);
+			name = "Reddit Post Cell";
+			sourceTree = "<group>";
+		};
+		C29EC1F417C33E5B006B1EB4 /* Table Buttons */ = {
+			isa = PBXGroup;
+			children = (
 				C23A849317C1E4CC008BD2B4 /* PreviousPageButton.xib */,
 				C23A849917C1E634008BD2B4 /* NextPageButton.xib */,
-				C23A848917C1CD17008BD2B4 /* RSRedditPostCell.xib */,
+			);
+			name = "Table Buttons";
+			sourceTree = "<group>";
+		};
+		C29EC1F517C33E80006B1EB4 /* Web Link View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C29EC1EC17C33D9B006B1EB4 /* RSWebLinkViewController.h */,
+				C29EC1ED17C33D9B006B1EB4 /* RSWebLinkViewController.m */,
+				C29EC1EE17C33D9B006B1EB4 /* RSWebLinkViewController.xib */,
+			);
+			name = "Web Link View Controller";
+			sourceTree = "<group>";
+		};
+		C29EC1F617C3481C006B1EB4 /* Self Text View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C29EC1F717C348A7006B1EB4 /* RSSelfTextViewController.h */,
+				C29EC1F817C348A7006B1EB4 /* RSSelfTextViewController.m */,
+				C29EC1F917C348A7006B1EB4 /* RSSelfTextViewController.xib */,
+			);
+			name = "Self Text View Controller";
+			sourceTree = "<group>";
+		};
+		C2AA795217B9D96D00164509 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C29EC1F617C3481C006B1EB4 /* Self Text View Controller */,
+				C29EC1F517C33E80006B1EB4 /* Web Link View Controller */,
+				C29EC1F117C33E29006B1EB4 /* Post List View Controller */,
 			);
 			name = "View Controllers";
 			path = RedditScroller;
@@ -865,6 +929,8 @@
 				C23A849717C1E5B4008BD2B4 /* DownArrow.png in Resources */,
 				C23A849817C1E5B4008BD2B4 /* UpArrow.png in Resources */,
 				C23A849A17C1E634008BD2B4 /* NextPageButton.xib in Resources */,
+				C29EC1F017C33D9B006B1EB4 /* RSWebLinkViewController.xib in Resources */,
+				C29EC1FB17C348A7006B1EB4 /* RSSelfTextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,6 +984,8 @@
 				C23A848817C1B67D008BD2B4 /* RSFakeRedditData.m in Sources */,
 				C23A848D17C1CF3B008BD2B4 /* RSRedditPostCell.m in Sources */,
 				C23A849017C1D234008BD2B4 /* RSPostListDataSource.m in Sources */,
+				C29EC1EF17C33D9B006B1EB4 /* RSWebLinkViewController.m in Sources */,
+				C29EC1FA17C348A7006B1EB4 /* RSSelfTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

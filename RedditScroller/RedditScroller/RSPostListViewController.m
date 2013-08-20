@@ -12,6 +12,8 @@
 #import "RSRedditPost.h"
 #import "RSConstants.h"
 #import "RSDataManager.h"
+#import "RSWebLinkViewController.h"
+#import "RSSelfTextViewController.h"
 
 @interface RSPostListViewController ()
 
@@ -128,11 +130,24 @@
 	RSPostListDataSource *dataSource = tableView.dataSource;
 	RSRedditPost* post = [dataSource postForIndexPath:indexPath];
 	NSLog(@"did select post %@",post.title);
+	
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target:nil action:nil];
+	[self.navigationItem setBackBarButtonItem: backButton];
+	
+	if (post.isSelfText)
+	{
+		RSSelfTextViewController* selfTextViewController = [[RSSelfTextViewController alloc] initWithNibName:@"RSSelfTextViewController" bundle:nil];
+		[selfTextViewController setRedditPost:post];
+		[self.navigationController pushViewController:selfTextViewController animated:YES];
+	} else {
+		RSWebLinkViewController* webLinkViewController = [[RSWebLinkViewController alloc] initWithNibName:@"RSWebLinkViewController" bundle:nil];
+		[webLinkViewController setRedditPost:post];
+		[self.navigationController pushViewController:webLinkViewController animated:YES];		
+	}
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSLog(@"height for row");
 	return 120.0f;
 }
 

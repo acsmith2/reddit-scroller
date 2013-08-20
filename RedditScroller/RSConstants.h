@@ -23,6 +23,7 @@
 #define kRSChildrenKey @"children"
 #define kRSBeforeKey @"before"
 #define kRSAfterKey @"after"
+#define kRSPosterNameKey @"author"
 
 // Server Info
 #define kRSRedditApiUrl @"http://www.reddit.com/.json"

@@ -50,6 +50,8 @@
 	[self.thumbnailImageView setContentMode:UIViewContentModeScaleAspectFit];
 	if ((redditPost.thumbnail_url != nil) && (![redditPost.thumbnail_url isEqualToString:@""])){
 		[self.thumbnailImageView setImageWithURL:[NSURL URLWithString:redditPost.thumbnail_url] placeholderImage:[UIImage imageNamed:@"RedditLogo"]];
+	} else {
+		[self.thumbnailImageView setImage:[UIImage imageNamed:@"RedditLogo"]];
 	}
 	_redditPost = redditPost;
 }

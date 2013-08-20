@@ -41,6 +41,7 @@
 	self.name = dataDictionary[kRSNameKey] ? dataDictionary[kRSNameKey] : @"";
 	self.url = dataDictionary[kRSURLKey] ? dataDictionary[kRSURLKey] : @"";
 	self.thumbnail_url = dataDictionary[kRSThumbnailKey] ? dataDictionary[kRSThumbnailKey] : @"";
+	self.posterName = dataDictionary[kRSPosterNameKey] ? dataDictionary[kRSPosterNameKey] : @"";
 	return self;
 }
 

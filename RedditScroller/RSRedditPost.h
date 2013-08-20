@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString* thumbnail_url;
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* url;
+@property (strong, nonatomic) NSString* posterName;
 @property NSInteger numberOfComments;
 @property Boolean isNSFW;
 @property Boolean isSelfText;
