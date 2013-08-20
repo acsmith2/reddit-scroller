@@ -1,5 +1,5 @@
 //
-//  RSViewController.h
+//  RSPostListViewController.h
 //  RedditScroller
 //
 //  Created by Adam Smith on 8/8/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RSViewController : UIViewController
+@interface RSPostListViewController : UIViewController <UITableViewDelegate>
 
 @end

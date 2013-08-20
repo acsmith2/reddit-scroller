@@ -9,13 +9,23 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^RSDataUpdatedSuccessBlock) ();
-typedef void (^RSDataUpdateFailureBlock) (NSString* message);
+typedef void (^RSDataUpdateFailureBlock) (NSString* message, NSError* error);
 
 @interface RSDataManager : NSObject
 
 +(RSDataManager*)sharedManager;
 
 -(void)refreshRedditDataWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock;
+-(void)loadNextPageWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock;
+-(void)loadPreviousPageWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock;
+
+-(Boolean)previousPageAvailable;
+-(Boolean)nextPageAvailable;;
+
 -(NSArray*)redditData;
+-(void)clearRedditData;
+
+@property (strong) NSString* beforePost;
+@property (strong) NSString* afterPost;
 
 @end

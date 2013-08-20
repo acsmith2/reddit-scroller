@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class RSViewController;
+@class RSPostListViewController;
 
 @interface RSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) RSViewController *viewController;
+@property (strong, nonatomic) RSPostListViewController *viewController;
 
 @end

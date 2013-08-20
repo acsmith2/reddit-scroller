@@ -8,7 +8,7 @@
 
 #import "RSAppDelegate.h"
 
-#import "RSViewController.h"
+#import "RSPostListViewController.h"
 
 @implementation RSAppDelegate
 
@@ -18,8 +18,11 @@
 	
 	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 	
-	self.viewController = [[RSViewController alloc] initWithNibName:@"RSViewController" bundle:nil];
-	self.window.rootViewController = self.viewController;
+	RSPostListViewController* postListViewController = [[RSPostListViewController alloc] initWithNibName:@"RSPostListViewController" bundle:nil];
+	
+	UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:postListViewController];
+
+	self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }

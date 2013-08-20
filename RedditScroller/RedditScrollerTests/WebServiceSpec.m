@@ -1,18 +1,36 @@
 #import "Kiwi.h"
-#import "RSConstants.h"
+#import "RSFakeRedditData.h"
 #import "RSWebService.h"
+#import "RSConstants.h"
 #import "Nocilla.h"
+#import "RSRedditPost.h"
 
 SPEC_BEGIN(WebServiceSpec)
 
 beforeAll(^{
   [[LSNocilla sharedInstance] start];
 });
+
 afterAll(^{
-  [[LSNocilla sharedInstance] stop];
+	
 });
+
+beforeEach(^{
+	stubRequest(@"GET", [RSConstants redditApiUrl]).
+	withHeaders(@{@"Accept": @"application/json"}).
+	andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleRealRedditFirstPageResults]);
+	
+	stubRequest(@"GET", [NSString stringWithFormat:@"%@%@",[RSConstants redditApiUrl],@"&after=t3_1kluu8"]).
+	withHeaders(@{@"Accept": @"application/json"}).
+	andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleReadRedditSecondPageResults]);
+	
+	stubRequest(@"GET", [NSString stringWithFormat:@"%@%@",[RSConstants redditApiUrl],@"&before=t3_1kmotr"]).
+	withHeaders(@{@"Accept": @"application/json"}).
+	andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleRealRedditFirstPageResults]);
+});
+
 afterEach(^{
-  [[LSNocilla sharedInstance] clearStubs];
+	
 });
 
 
@@ -36,13 +54,14 @@ describe(@"WebService", ^{
 	
 	context(@"when getting the latest Reddit data", ^{
 		it(@"should call a success block if successful", ^{
-			stubRequest(@"GET", kRSRedditApiUrl).
+			NSLog(@"*******$$$$$$$$$$$$$$$ failing test $$$$$$$$$$$$$$$");
+			stubRequest(@"GET", [RSConstants redditApiUrl]).
 			withHeaders(@{@"Accept": @"application/json"}).
-			andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSConstants sampleRealRedditResults]);
+			andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleRealRedditFirstPageResults]);
 			
 			__block NSString* blockStatus = @"none";
 			
-			[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects) {
+			[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects, NSString* beforePost, NSString* afterPost) {
 				blockStatus = @"success";
 			} andFailureBlock:^(NSString *message, NSError *error) {
 				blockStatus = @"failure";
@@ -54,19 +73,39 @@ describe(@"WebService", ^{
 	
 	context(@"when getting the latest Reddit data", ^{
 		it(@"should call a failure block if there is a network failure", ^{
-			stubRequest(@"GET", kRSRedditApiUrl).
+			
+			[[LSNocilla sharedInstance] clearStubs];
+			stubRequest(@"GET", [RSConstants redditApiUrl]).
 			withHeaders(@{@"Accept": @"application/json"}).
 			andFailWithError([NSError errorWithDomain:@"foo" code:500 userInfo:nil]);
 			
 			__block NSString* blockStatus = @"none";
 			
-			[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects) {
+			[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects, NSString* beforePost, NSString* afterPost) {
 				blockStatus = @"success";
 			} andFailureBlock:^(NSString *message, NSError *error) {
 				blockStatus = @"failure";
+				stubRequest(@"GET", [RSConstants redditApiUrl]).
+				withHeaders(@{@"Accept": @"application/json"}).
+				andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleRealRedditFirstPageResults]);
 			}];
 			
-			[[expectFutureValue(blockStatus) shouldEventuallyBeforeTimingOutAfter(4)] equal:@"failure"];
+			[[expectFutureValue(blockStatus) shouldEventually] equal:@"failure"];
+		});
+	});
+	
+	context(@"when getting the second page of reddit data", ^{
+		it(@"should call a success block with post data", ^{
+			[[RSWebService sharedService] retrieveRedditDataAfter:@"t3_1kluu8" withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
+				[[theValue(dataObjects.count) should] beGreaterThan:theValue(0)];
+				for (RSRedditPost* object in dataObjects) {
+					[[object should] beNonNil];
+					[[[object title] should] beNonNil];
+				}
+			 [[beforePost should] beNonNil];			 
+			} andFailureBlock:^(NSString *message, NSError *error) {
+				fail(@"failure block called");
+			}];
 		});
 	});
 });

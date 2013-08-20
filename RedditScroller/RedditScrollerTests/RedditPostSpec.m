@@ -1,7 +1,7 @@
 #import "Kiwi.h"
 #import "Nocilla.h"
 #import "RSRedditPost.h"
-#import "RSConstants.h"
+#import "RSFakeRedditData.h"
 
 SPEC_BEGIN(RedditPostSpec)
 
@@ -36,7 +36,7 @@ describe(@"RedditPost", ^{
 	});
 	context(@"when newly created with a valid Reddit result dictionary", ^{
 		it(@"should return an object with correct values when initialized with a real Reddit result", ^{
-			RSRedditPost *post = [[RSRedditPost alloc] initWithDictionary:[RSConstants sampleUrlResultDictionary]];
+			RSRedditPost *post = [[RSRedditPost alloc] initWithDictionary:[RSFakeRedditData sampleUrlResultDictionary]];
 			[post shouldNotBeNil];
 			[[post.title should] equal:@"Elon Musk has unveiled new details about the hyperloop, a new (super fast) form of transportation."];
 			[[post.name should] equal:@"t3_1k8bhi"];

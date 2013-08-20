@@ -8,10 +8,11 @@
 
 #import "RSDataManager.h"
 #import "RSWebService.h"
+#import "RSConstants.h"
 
 @interface RSDataManager ()
 
-@property (strong) NSMutableArray* posts;
+@property (strong, nonatomic) NSMutableArray* posts;
 
 @end
 
@@ -41,22 +42,97 @@
 }
 
 -(void)refreshRedditDataWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock
+// Store the first page of Reddit posts into redditData
 {
-	[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects) {
-		[self.posts setArray:dataObjects];
-		if (successBlock) {
-			successBlock();
+	NSLog(@"refreshRedditDataWithSuccessBlock");
+	[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects, NSString* beforePost, NSString* afterPost) {
+		if (dataObjects.count > 0) {
+			[self.posts setArray:dataObjects];
+			self.afterPost = afterPost;
+			self.beforePost = beforePost;
+			if (successBlock) {
+				successBlock();
+			}
+		} else {
+			if (failureBlock) {
+				failureBlock(@"No objects returned",[NSError errorWithDomain:@"DataManager" code:kRSEmptyResultsErrorCode userInfo:nil]);
+			}
 		}
 	} andFailureBlock:^(NSString *message, NSError *error) {
 		if (failureBlock) {
-			failureBlock(message);
+			failureBlock(message,error);
 		}
 	}];
+	NSLog(@"end of refreshRedditDataWithSuccessBlock");
+}
+
+-(void)loadNextPageWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock
+{
+	[[RSWebService sharedService] retrieveRedditDataAfter:self.afterPost withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
+		if (dataObjects.count > 0) {
+			[self.posts setArray:dataObjects];
+			self.beforePost = beforePost;
+			self.afterPost = afterPost;
+			if (successBlock) {
+				successBlock();
+			}
+		} else {
+			self.afterPost = nil;
+			if (failureBlock) {
+				failureBlock(@"No objects returned",[NSError errorWithDomain:@"DataManager" code:kRSEmptyResultsErrorCode userInfo:nil]);
+			}
+		}
+
+	} andFailureBlock:^(NSString *message, NSError *error) {
+		if (failureBlock) {
+			failureBlock(message,error);
+		}
+	}];
+}
+
+-(void)loadPreviousPageWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock
+{
+	[[RSWebService sharedService] retrieveRedditDataBefore:self.beforePost withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
+		if (dataObjects.count > 0) {
+			[self.posts setArray:dataObjects];
+			self.beforePost = beforePost;
+			self.afterPost = afterPost;
+			if (successBlock) {
+				successBlock();
+			}
+		} else {
+			self.beforePost = nil;
+			if (failureBlock) {
+				failureBlock(@"No objects returned",[NSError errorWithDomain:@"DataManager" code:kRSEmptyResultsErrorCode userInfo:nil]);
+			}
+		}
+
+	} andFailureBlock:^(NSString *message, NSError *error) {
+		if (failureBlock) {
+			failureBlock(message,error);
+		}
+	}];
+}
+
+-(Boolean)previousPageAvailable
+{
+	return (self.beforePost != nil);
+}
+-(Boolean)nextPageAvailable
+{
+	return (self.afterPost != nil);
 }
 
 -(NSArray*)redditData
 {
 	return self.posts;
+}
+
+-(void)clearRedditData
+{
+	[self.posts removeAllObjects];
+	self.beforePost = nil;
+	self.afterPost = nil;
 }
 
 @end

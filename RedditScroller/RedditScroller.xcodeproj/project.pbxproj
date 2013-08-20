@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C23A848817C1B67D008BD2B4 /* RSFakeRedditData.m in Sources */ = {isa = PBXBuildFile; fileRef = C23A848717C1B67D008BD2B4 /* RSFakeRedditData.m */; };
+		C23A848A17C1CD17008BD2B4 /* RSRedditPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23A848917C1CD17008BD2B4 /* RSRedditPostCell.xib */; };
+		C23A848D17C1CF3B008BD2B4 /* RSRedditPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C23A848C17C1CF3B008BD2B4 /* RSRedditPostCell.m */; };
+		C23A849017C1D234008BD2B4 /* RSPostListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C23A848F17C1D234008BD2B4 /* RSPostListDataSource.m */; };
+		C23A849217C1D6C6008BD2B4 /* RedditLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C23A849117C1D6C6008BD2B4 /* RedditLogo.png */; };
+		C23A849417C1E4CC008BD2B4 /* PreviousPageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23A849317C1E4CC008BD2B4 /* PreviousPageButton.xib */; };
+		C23A849717C1E5B4008BD2B4 /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C23A849517C1E5B3008BD2B4 /* DownArrow.png */; };
+		C23A849817C1E5B4008BD2B4 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C23A849617C1E5B4008BD2B4 /* UpArrow.png */; };
+		C23A849A17C1E634008BD2B4 /* NextPageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23A849917C1E634008BD2B4 /* NextPageButton.xib */; };
 		C28E01C017B4C958005806FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01BF17B4C958005806FE /* UIKit.framework */; };
 		C28E01C217B4C958005806FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C117B4C958005806FE /* Foundation.framework */; };
 		C28E01C417B4C958005806FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C317B4C958005806FE /* CoreGraphics.framework */; };
@@ -16,8 +25,8 @@
 		C28E01D217B4C958005806FE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C28E01D117B4C958005806FE /* Default.png */; };
 		C28E01D417B4C958005806FE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28E01D317B4C958005806FE /* Default@2x.png */; };
 		C28E01D617B4C958005806FE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28E01D517B4C958005806FE /* Default-568h@2x.png */; };
-		C28E01D917B4C958005806FE /* RSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E01D817B4C958005806FE /* RSViewController.m */; };
-		C28E01DC17B4C958005806FE /* RSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28E01DA17B4C958005806FE /* RSViewController.xib */; };
+		C28E01D917B4C958005806FE /* RSPostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E01D817B4C958005806FE /* RSPostListViewController.m */; };
+		C28E01DC17B4C958005806FE /* RSPostListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28E01DA17B4C958005806FE /* RSPostListViewController.xib */; };
 		C28E01E417B4C958005806FE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01E317B4C958005806FE /* SenTestingKit.framework */; };
 		C28E01E517B4C958005806FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01BF17B4C958005806FE /* UIKit.framework */; };
 		C28E01E617B4C958005806FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28E01C117B4C958005806FE /* Foundation.framework */; };
@@ -92,6 +101,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C23A848617C1B67D008BD2B4 /* RSFakeRedditData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSFakeRedditData.h; path = ../RSFakeRedditData.h; sourceTree = "<group>"; };
+		C23A848717C1B67D008BD2B4 /* RSFakeRedditData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSFakeRedditData.m; path = ../RSFakeRedditData.m; sourceTree = "<group>"; };
+		C23A848917C1CD17008BD2B4 /* RSRedditPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSRedditPostCell.xib; sourceTree = "<group>"; };
+		C23A848B17C1CF3B008BD2B4 /* RSRedditPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRedditPostCell.h; sourceTree = "<group>"; };
+		C23A848C17C1CF3B008BD2B4 /* RSRedditPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRedditPostCell.m; sourceTree = "<group>"; };
+		C23A848E17C1D234008BD2B4 /* RSPostListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPostListDataSource.h; sourceTree = "<group>"; };
+		C23A848F17C1D234008BD2B4 /* RSPostListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPostListDataSource.m; sourceTree = "<group>"; };
+		C23A849117C1D6C6008BD2B4 /* RedditLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedditLogo.png; sourceTree = "<group>"; };
+		C23A849317C1E4CC008BD2B4 /* PreviousPageButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviousPageButton.xib; sourceTree = "<group>"; };
+		C23A849517C1E5B3008BD2B4 /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrow.png; sourceTree = "<group>"; };
+		C23A849617C1E5B4008BD2B4 /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrow.png; sourceTree = "<group>"; };
+		C23A849917C1E634008BD2B4 /* NextPageButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextPageButton.xib; sourceTree = "<group>"; };
 		C28E01BC17B4C958005806FE /* RedditScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28E01BF17B4C958005806FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C28E01C117B4C958005806FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -105,9 +126,9 @@
 		C28E01D117B4C958005806FE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C28E01D317B4C958005806FE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C28E01D517B4C958005806FE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C28E01D717B4C958005806FE /* RSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSViewController.h; sourceTree = "<group>"; };
-		C28E01D817B4C958005806FE /* RSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSViewController.m; sourceTree = "<group>"; };
-		C28E01DB17B4C958005806FE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RSViewController.xib; sourceTree = "<group>"; };
+		C28E01D717B4C958005806FE /* RSPostListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSPostListViewController.h; sourceTree = "<group>"; };
+		C28E01D817B4C958005806FE /* RSPostListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSPostListViewController.m; sourceTree = "<group>"; };
+		C28E01DB17B4C958005806FE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RSPostListViewController.xib; sourceTree = "<group>"; };
 		C28E01E217B4C958005806FE /* RedditScrollerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditScrollerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28E01E317B4C958005806FE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C28E01EB17B4C958005806FE /* RedditScrollerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditScrollerTests-Info.plist"; sourceTree = "<group>"; };
@@ -392,12 +413,14 @@
 		C28E01E917B4C958005806FE /* RedditScrollerTests */ = {
 			isa = PBXGroup;
 			children = (
+				C23A848617C1B67D008BD2B4 /* RSFakeRedditData.h */,
+				C23A848717C1B67D008BD2B4 /* RSFakeRedditData.m */,
 				C2AA795317B9D97900164509 /* Third Party */,
 				C2F9344A17B4CF3600231A57 /* Nocilla */,
 				C28E01EA17B4C958005806FE /* Supporting Files */,
+				C2AA796517BA11E500164509 /* DataManagerSpec.m */,
 				C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */,
 				C2AA797117BB62F400164509 /* RedditPostSpec.m */,
-				C2AA796517BA11E500164509 /* DataManagerSpec.m */,
 			);
 			path = RedditScrollerTests;
 			sourceTree = "<group>";
@@ -414,9 +437,16 @@
 		C2AA795217B9D96D00164509 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C28E01D717B4C958005806FE /* RSViewController.h */,
-				C28E01D817B4C958005806FE /* RSViewController.m */,
-				C28E01DA17B4C958005806FE /* RSViewController.xib */,
+				C28E01D717B4C958005806FE /* RSPostListViewController.h */,
+				C28E01D817B4C958005806FE /* RSPostListViewController.m */,
+				C28E01DA17B4C958005806FE /* RSPostListViewController.xib */,
+				C23A848E17C1D234008BD2B4 /* RSPostListDataSource.h */,
+				C23A848F17C1D234008BD2B4 /* RSPostListDataSource.m */,
+				C23A848B17C1CF3B008BD2B4 /* RSRedditPostCell.h */,
+				C23A848C17C1CF3B008BD2B4 /* RSRedditPostCell.m */,
+				C23A849317C1E4CC008BD2B4 /* PreviousPageButton.xib */,
+				C23A849917C1E634008BD2B4 /* NextPageButton.xib */,
+				C23A848917C1CD17008BD2B4 /* RSRedditPostCell.xib */,
 			);
 			name = "View Controllers";
 			path = RedditScroller;
@@ -434,6 +464,9 @@
 		C2AA795417B9D9AE00164509 /* RedditScroller */ = {
 			isa = PBXGroup;
 			children = (
+				C23A849117C1D6C6008BD2B4 /* RedditLogo.png */,
+				C23A849517C1E5B3008BD2B4 /* DownArrow.png */,
+				C23A849617C1E5B4008BD2B4 /* UpArrow.png */,
 				C28E01C617B4C958005806FE /* Supporting Files */,
 				C2AA795917B9E09D00164509 /* Utilities */,
 				C2AA795517B9D9C300164509 /* Data Model */,
@@ -825,7 +858,13 @@
 				C28E01D217B4C958005806FE /* Default.png in Resources */,
 				C28E01D417B4C958005806FE /* Default@2x.png in Resources */,
 				C28E01D617B4C958005806FE /* Default-568h@2x.png in Resources */,
-				C28E01DC17B4C958005806FE /* RSViewController.xib in Resources */,
+				C28E01DC17B4C958005806FE /* RSPostListViewController.xib in Resources */,
+				C23A848A17C1CD17008BD2B4 /* RSRedditPostCell.xib in Resources */,
+				C23A849217C1D6C6008BD2B4 /* RedditLogo.png in Resources */,
+				C23A849417C1E4CC008BD2B4 /* PreviousPageButton.xib in Resources */,
+				C23A849717C1E5B4008BD2B4 /* DownArrow.png in Resources */,
+				C23A849817C1E5B4008BD2B4 /* UpArrow.png in Resources */,
+				C23A849A17C1E634008BD2B4 /* NextPageButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,7 +906,7 @@
 				C2AA79B617BB759E00164509 /* UIImageView+AFNetworking.m in Sources */,
 				C28E01CC17B4C958005806FE /* main.m in Sources */,
 				C28E01D017B4C958005806FE /* RSAppDelegate.m in Sources */,
-				C28E01D917B4C958005806FE /* RSViewController.m in Sources */,
+				C28E01D917B4C958005806FE /* RSPostListViewController.m in Sources */,
 				C2AA795817B9D9DB00164509 /* RSRedditPost.m in Sources */,
 				C2AA796017B9ED1700164509 /* RSConstants.m in Sources */,
 				C2AA796417BA0E4400164509 /* RSDataManager.m in Sources */,
@@ -876,6 +915,9 @@
 				C2AA79AF17BB74C200164509 /* AFHTTPRequestOperation.m in Sources */,
 				C2AA79B017BB74E700164509 /* AFImageRequestOperation.m in Sources */,
 				C2AA79B117BB753000164509 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				C23A848817C1B67D008BD2B4 /* RSFakeRedditData.m in Sources */,
+				C23A848D17C1CF3B008BD2B4 /* RSRedditPostCell.m in Sources */,
+				C23A849017C1D234008BD2B4 /* RSPostListDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,12 +981,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		C28E01DA17B4C958005806FE /* RSViewController.xib */ = {
+		C28E01DA17B4C958005806FE /* RSPostListViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C28E01DB17B4C958005806FE /* en */,
 			);
-			name = RSViewController.xib;
+			name = RSPostListViewController.xib;
 			sourceTree = "<group>";
 		};
 		C28E01EC17B4C958005806FE /* InfoPlist.strings */ = {
@@ -1019,6 +1061,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "RedditScroller/RedditScroller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1030,6 +1073,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RedditScroller/RedditScroller-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "RedditScroller/RedditScroller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

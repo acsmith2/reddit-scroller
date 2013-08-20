@@ -36,21 +36,30 @@
 	return self;
 }
 
--(NSString*)redditUrlPathWithAfterParameter:(NSString*)param
+-(NSString*)redditUrlPathWithBeforeParameter:(NSString*)param
 {
-	NSString* url = kRSRedditApiUrl;
+	NSString* url = [RSConstants redditApiUrl];
 	if (param != nil) {
-		return [NSString stringWithFormat:@"%@?after=%@",url,param];
+		return [NSString stringWithFormat:@"%@&before=%@",url,param];
 	} else {
 		return url;
 	}
 }
 
-
--(NSURLRequest*)createJsonGetUrlRequestWithAfterParam:(NSString*)param
+-(NSString*)redditUrlPathWithAfterParameter:(NSString*)param
 {
-	NSString* urlString = [self redditUrlPathWithAfterParameter:param];
+	NSLog(@"redditUrlPathWithAfterParameter %@",param);
+	NSString* url = [RSConstants redditApiUrl];
+	if (param != nil) {
+		return [NSString stringWithFormat:@"%@&after=%@",url,param];
+	} else {
+		return url;
+	}
+}
 
+-(NSURLRequest*)createJsonGetRequestAtUrl:(NSString*)urlString
+{
+	NSLog(@"createJsonGetRequestAtUrl");
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
 	[request setHTTPMethod:@"GET"];
   [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -58,40 +67,80 @@
 	return request;
 }
 
-
-
--(void) retrieveRedditDataAfter:(NSString*)postName withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
+-(NSURLRequest*)createJsonGetUrlRequestWithAfterParam:(NSString*)after
 {
-	NSURLRequest* request = [self createJsonGetUrlRequestWithAfterParam:postName];
+	NSLog(@"createJsonGetUrlRequestWithAfterParam %@",after);
+	return [self createJsonGetRequestAtUrl:[self redditUrlPathWithAfterParameter:after]];
+}
+
+-(NSURLRequest*)createJsonGetUrlRequestWithBeforeParam:(NSString*)before
+{
+	return [self createJsonGetRequestAtUrl:[self redditUrlPathWithBeforeParameter:before]];
+}
+
+-(void)retrieveRedditDataWithRequest:(NSURLRequest*)request successBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
+{
+	NSLog(@"retrieveRedditDataWitHRequest");
 	AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-		
+		NSLog(@"retrieved data");
 		NSDictionary* listingData = JSON[kRSDataKey];
 		NSArray* dataChildren = listingData[kRSChildrenKey];
+		if (!dataChildren || (dataChildren == (id)[NSNull null])) {
+			if (failureBlock) {
+				failureBlock(@"Could not retrieve data",nil);
+			}
+		}
+		
+		NSString* beforePost = (listingData[kRSBeforeKey] != (id)[NSNull null]) ? listingData[kRSBeforeKey] : nil;
+		NSString* afterPost = (listingData[kRSAfterKey] != (id)[NSNull null]) ? listingData[kRSAfterKey] : nil;
+		
+		NSLog(@"beforePost: %@ afterPost: %@",beforePost,afterPost);
+		
+		NSLog(@"before post == nil %d",beforePost == nil);
 		
 		NSMutableArray* resultsArray = [NSMutableArray array];
 		
 		for (NSDictionary* postDictionary in dataChildren) {
-			NSLog(@"about to create post");
 			RSRedditPost *newPost = [[RSRedditPost alloc] initWithDictionary:postDictionary];
 			if (newPost) {
-				[resultsArray addObject:newPost];
+				if (!(newPost.isSelfText && ((newPost.selftext == nil) || ([newPost.selftext isEqualToString:@""])))) {
+					[resultsArray addObject:newPost];
+				}
 			}
 		}
 		
 		if (successBlock) {
-				successBlock(resultsArray);
+			successBlock(resultsArray, beforePost, afterPost);
 		}
 	} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+		NSLog(@"failed to retrieve data");
 		if (failureBlock) {
 			failureBlock(@"Failed to retrieve data from Reddit.",error);
 		}
 	}];
+	
+	NSLog(@"created operation");
 	[operation start];
+	
 }
 
+-(void) retrieveRedditDataBefore:(NSString *)beforeName withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
+{
+	NSLog(@"retrieveRedditDataBefore");
+	NSURLRequest* request = [self createJsonGetUrlRequestWithBeforeParam:beforeName];
+	[self retrieveRedditDataWithRequest:request successBlock:successBlock andFailureBlock:failureBlock];
+}
+
+-(void) retrieveRedditDataAfter:(NSString*)postName withSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
+{
+	NSLog(@"retrieveRedditDataAfter: %@",postName);
+	NSURLRequest* request = [self createJsonGetUrlRequestWithAfterParam:postName];
+	[self retrieveRedditDataWithRequest:request successBlock:successBlock andFailureBlock:failureBlock];
+}
 
 -(void) retrieveLatestRedditDataWithSuccessBlock:(RSArrayNetworkSuccessBlock)successBlock andFailureBlock:(RSNetworkFailureBlock)failureBlock
 {
+	NSLog(@"retrieveLatestRedditDataWithSuccessBlock");
 	[self retrieveRedditDataAfter:nil withSuccessBlock:successBlock andFailureBlock:failureBlock];
 }
 

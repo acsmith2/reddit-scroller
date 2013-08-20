@@ -21,14 +21,21 @@
 #define kRSNSFWKey @"over_18"
 #define kRSDataKey @"data"
 #define kRSChildrenKey @"children"
+#define kRSBeforeKey @"before"
+#define kRSAfterKey @"after"
 
 // Server Info
 #define kRSRedditApiUrl @"http://www.reddit.com/.json"
+#define kRSRedditPostCount 25
+
+// Cell Identifier
+#define kRSRedditPostCellIdentifier @"RedditPostCell"
+
+// Error Codes
+#define kRSEmptyResultsErrorCode 999
 
 @interface RSConstants : NSObject
 
-+(NSDictionary*)sampleUrlResultDictionary;
-+(NSDictionary*)sampleSelfTextResultDictionary;
-+(NSArray*)sampleResultArray;
-+(NSString*)sampleRealRedditResults;
++(NSString*)redditApiUrl;
+
 @end
