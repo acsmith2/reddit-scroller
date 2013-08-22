@@ -14,12 +14,14 @@
 #import "RSDataManager.h"
 #import "RSWebLinkViewController.h"
 #import "RSSelfTextViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface RSPostListViewController ()
 
 @property Boolean firstFetch;
 @property (strong, nonatomic) IBOutlet UITableView* tableView;
 @property (strong, nonatomic) RSPostListDataSource* dataSource;
+@property (strong, nonatomic) UIActivityIndicatorView* progressView;
 
 @end
 
@@ -28,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
 	self.dataSource = [[RSPostListDataSource alloc] init];
 	[self.tableView setDataSource:self.dataSource];
 	[self.tableView setDelegate:self];
@@ -36,6 +39,16 @@
 	[self.navigationItem setTitle:@"redditScroller"];
 	UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshButtonPressed:)];
 	[self.navigationItem setRightBarButtonItem:refreshButton];
+	
+	self.progressView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	self.progressView.frame = CGRectMake(0.0, 0.0, 80.0, 80.0);
+	self.progressView.center = CGPointMake(self.view.center.x, self.view.center.y - 30.0f);
+	[[self.progressView layer] setBorderWidth:1.0f];
+	[[self.progressView layer] setBorderColor:[UIColor blackColor].CGColor];
+	[[self.progressView layer] setCornerRadius:7.0f];
+	[self.progressView setBackgroundColor:[UIColor darkGrayColor]];
+	[self.view addSubview:self.progressView];
+	[self.progressView bringSubviewToFront:self.view];
 	[self refreshRedditData];
 }
 
@@ -49,13 +62,29 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)displayProgressView
+{
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	[self.progressView setHidden:NO];
+	[self.progressView startAnimating];
+}
+
+-(void)hideProgressView
+{
+	[self.progressView setHidden:YES];
+	[self.progressView stopAnimating];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 -(void) refreshRedditData
 {
 		self.firstFetch = true;
+	[self displayProgressView];
 	[[RSDataManager sharedManager] refreshRedditDataWithSuccessBlock:^{
 		NSLog(@"refreshRedditDataWithSuccessBlock success");
 		[self refreshTableView];
-					self.firstFetch = FALSE;
+		self.firstFetch = FALSE;
+		[self hideProgressView];
 	} andFailureBlock:^(NSString *message, NSError* error) {
 		if (error.code == kRSEmptyResultsErrorCode) {
 			[self refreshTableView];
@@ -63,6 +92,7 @@
 			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 			[alert show];
 		}
+		[self hideProgressView];
 	}];
 }
 
@@ -93,6 +123,7 @@
 
 -(void)previousPageButtonPressed:(id)sender
 {
+	[self displayProgressView];
 	[[RSDataManager sharedManager] loadPreviousPageWithSuccessBlock:^{
 		[self refreshTableView];
 		int finalRow = [self.tableView numberOfSections] - 1;
@@ -101,6 +132,7 @@
 		}
 		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:finalRow];
 		[self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+		[self hideProgressView];
 	} andFailureBlock:^(NSString *message, NSError* error) {
 		if (error.code == kRSEmptyResultsErrorCode) {
 			[self refreshTableView];			
@@ -108,18 +140,26 @@
 			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 			[alert show];
 		}
+		[self hideProgressView];
 	}];
 }
 
 -(void)nextPageButtonPressed:(id)sender
 {
+	[self displayProgressView];
 	[[RSDataManager sharedManager] loadNextPageWithSuccessBlock:^{
 		[self refreshTableView];
 		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 		[self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+		[self hideProgressView];
 	} andFailureBlock:^(NSString *message, NSError* error) {
-		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
+		if (error.code == kRSEmptyResultsErrorCode) {
+			[self refreshTableView];
+		} else {
+			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+			[alert show];
+		}
+		[self hideProgressView];
 	}];
 }
 

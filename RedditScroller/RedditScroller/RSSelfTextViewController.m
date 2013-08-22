@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UILabel* titleLabel;
 @property (strong, nonatomic) UILabel* selfTextLabel;
 @property (strong, nonatomic) IBOutlet UIView* holderView;
+@property (strong, nonatomic) IBOutlet UIScrollView* scrollView;
 
 @end
 
@@ -43,7 +44,8 @@
 	[self.authorLabel setText:self.redditPost.posterName];
 	[self.commentsLabel setText:[NSString stringWithFormat:@"%d comments",self.redditPost.numberOfComments]];
 
-	const CGFloat containerWidth = 290.0f;
+	const CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+	const CGFloat containerWidth = screenWidth - 40;
 	const CGFloat labelPadding = 10.0f;
 	const CGFloat constrainedWidth = containerWidth - (labelPadding * 2.0);
 	NSLog(@"first pass holderview frame width %lf container width %lf",self.holderView.frame.size.width,containerWidth);
@@ -119,6 +121,20 @@
 	[self.selfTextLabel sizeToFit];
 	[selfTextContainerView addSubview:self.selfTextLabel];
 	[self.holderView addSubview:selfTextContainerView];
+	
+	NSLog(@"holderview frame before: %lf %lf %lf %lf",self.holderView.frame.origin.x,self.holderView.frame.origin.y,self.holderView.frame.size.width,self.holderView.frame.size.height);
+	
+	[self.holderView setFrame:CGRectMake(labelPadding, labelPadding, containerWidth + (2.0 * labelPadding), selfTextContainerFrame.origin.y + selfTextContainerFrame.size.height + labelPadding)];
+	[[self.holderView layer] setBorderColor:[UIColor blackColor].CGColor];
+	[[self.holderView layer] setBorderWidth:1.0f];
+	[[self.holderView layer] setCornerRadius:7.0f];
+	
+	NSLog(@"holderview frame after: %lf %lf %lf %lf",self.holderView.frame.origin.x,self.holderView.frame.origin.y,self.holderView.frame.size.width,self.holderView.frame.size.height);
+
+	CGSize scrollContentSize = CGSizeMake(screenWidth, self.holderView.frame.size.height + self.holderView.frame.origin.y + labelPadding);
+	
+	[self.scrollView setContentSize:scrollContentSize];
+	
 }
 
 - (void)didReceiveMemoryWarning
