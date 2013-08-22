@@ -360,6 +360,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C27E8E3D17C5F6B800AD3EEE /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA795617B9D9DB00164509 /* RSRedditPost.h */,
+				C2AA795717B9D9DB00164509 /* RSRedditPost.m */,
+			);
+			name = "Model Objects";
+			sourceTree = "<group>";
+		};
+		C27E8E3E17C5F6E900AD3EEE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C23A849117C1D6C6008BD2B4 /* RedditLogo.png */,
+				C23A849517C1E5B3008BD2B4 /* DownArrow.png */,
+				C23A849617C1E5B4008BD2B4 /* UpArrow.png */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C28E01B317B4C958005806FE = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +428,7 @@
 		C28E01C617B4C958005806FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C27E8E3E17C5F6E900AD3EEE /* Resources */,
 				C28E01C717B4C958005806FE /* RedditScroller-Info.plist */,
 				C28E01C817B4C958005806FE /* InfoPlist.strings */,
 				C28E01CB17B4C958005806FE /* main.m */,
@@ -528,9 +549,6 @@
 		C2AA795417B9D9AE00164509 /* RedditScroller */ = {
 			isa = PBXGroup;
 			children = (
-				C23A849117C1D6C6008BD2B4 /* RedditLogo.png */,
-				C23A849517C1E5B3008BD2B4 /* DownArrow.png */,
-				C23A849617C1E5B4008BD2B4 /* UpArrow.png */,
 				C28E01C617B4C958005806FE /* Supporting Files */,
 				C2AA795917B9E09D00164509 /* Utilities */,
 				C2AA795517B9D9C300164509 /* Data Model */,
@@ -543,10 +561,9 @@
 		C2AA795517B9D9C300164509 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				C2AA796D17BB61FC00164509 /* Web Service */,
+				C27E8E3D17C5F6B800AD3EEE /* Model Objects */,
 				C2AA796117BA0E2D00164509 /* Data Manager */,
-				C2AA795617B9D9DB00164509 /* RSRedditPost.h */,
-				C2AA795717B9D9DB00164509 /* RSRedditPost.m */,
+				C2AA796D17BB61FC00164509 /* Web Service */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";

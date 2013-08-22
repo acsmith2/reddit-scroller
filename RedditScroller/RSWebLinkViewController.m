@@ -18,32 +18,25 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		// Custom initialization
+	}
+	return self;
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	[self.navigationItem setTitle:self.redditPost.domain];
-	NSLog(@"loading url %@",self.redditPost.url);
 	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.redditPost.url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0f];
-	[self.webView loadRequest:request];													 
+	[self.webView loadRequest:request];
 }
 
 @end

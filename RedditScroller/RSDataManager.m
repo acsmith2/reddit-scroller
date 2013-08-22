@@ -44,7 +44,6 @@
 -(void)refreshRedditDataWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock
 // Store the first page of Reddit posts into redditData
 {
-	NSLog(@"refreshRedditDataWithSuccessBlock");
 	[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects, NSString* beforePost, NSString* afterPost) {
 		if (dataObjects.count > 0) {
 			[self.posts setArray:dataObjects];
@@ -63,7 +62,6 @@
 			failureBlock(message,error);
 		}
 	}];
-	NSLog(@"end of refreshRedditDataWithSuccessBlock");
 }
 
 -(void)loadNextPageWithSuccessBlock:(RSDataUpdatedSuccessBlock)successBlock andFailureBlock:(RSDataUpdateFailureBlock)failureBlock
@@ -82,7 +80,7 @@
 				failureBlock(@"No objects returned",[NSError errorWithDomain:@"DataManager" code:kRSEmptyResultsErrorCode userInfo:nil]);
 			}
 		}
-
+		
 	} andFailureBlock:^(NSString *message, NSError *error) {
 		if (failureBlock) {
 			failureBlock(message,error);
@@ -106,7 +104,7 @@
 				failureBlock(@"No objects returned",[NSError errorWithDomain:@"DataManager" code:kRSEmptyResultsErrorCode userInfo:nil]);
 			}
 		}
-
+		
 	} andFailureBlock:^(NSString *message, NSError *error) {
 		if (failureBlock) {
 			failureBlock(message,error);

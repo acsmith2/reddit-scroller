@@ -29,20 +29,20 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
 	
 	self.dataSource = [[RSPostListDataSource alloc] init];
 	[self.tableView setDataSource:self.dataSource];
 	[self.tableView setDelegate:self];
 	[self.tableView registerNib:[UINib nibWithNibName:@"RSRedditPostCell" bundle:nil] forCellReuseIdentifier:kRSRedditPostCellIdentifier];
-
+	
 	[self.navigationItem setTitle:@"redditScroller"];
 	UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshButtonPressed:)];
 	[self.navigationItem setRightBarButtonItem:refreshButton];
 	
 	self.progressView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	self.progressView.frame = CGRectMake(0.0, 0.0, 80.0, 80.0);
-	self.progressView.center = CGPointMake(self.view.center.x, self.view.center.y - 30.0f);
+	self.progressView.center = CGPointMake(self.view.center.x, self.view.center.y- 50.0f);
 	[[self.progressView layer] setBorderWidth:1.0f];
 	[[self.progressView layer] setBorderColor:[UIColor blackColor].CGColor];
 	[[self.progressView layer] setCornerRadius:7.0f];
@@ -59,7 +59,7 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
+	[super didReceiveMemoryWarning];
 }
 
 -(void)displayProgressView
@@ -78,10 +78,9 @@
 
 -(void) refreshRedditData
 {
-		self.firstFetch = true;
+	self.firstFetch = true;
 	[self displayProgressView];
 	[[RSDataManager sharedManager] refreshRedditDataWithSuccessBlock:^{
-		NSLog(@"refreshRedditDataWithSuccessBlock success");
 		[self refreshTableView];
 		self.firstFetch = FALSE;
 		[self hideProgressView];
@@ -118,7 +117,7 @@
 	} else {
 		[self.tableView setTableFooterView:nil];
 	}
-
+	
 }
 
 -(void)previousPageButtonPressed:(id)sender
@@ -135,7 +134,7 @@
 		[self hideProgressView];
 	} andFailureBlock:^(NSString *message, NSError* error) {
 		if (error.code == kRSEmptyResultsErrorCode) {
-			[self refreshTableView];			
+			[self refreshTableView];
 		} else {
 			UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 			[alert show];
@@ -169,7 +168,6 @@
 {
 	RSPostListDataSource *dataSource = tableView.dataSource;
 	RSRedditPost* post = [dataSource postForIndexPath:indexPath];
-	NSLog(@"did select post %@",post.title);
 	
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target:nil action:nil];
 	[self.navigationItem setBackBarButtonItem: backButton];
@@ -182,7 +180,7 @@
 	} else {
 		RSWebLinkViewController* webLinkViewController = [[RSWebLinkViewController alloc] initWithNibName:@"RSWebLinkViewController" bundle:nil];
 		[webLinkViewController setRedditPost:post];
-		[self.navigationController pushViewController:webLinkViewController animated:YES];		
+		[self.navigationController pushViewController:webLinkViewController animated:YES];
 	}
 }
 

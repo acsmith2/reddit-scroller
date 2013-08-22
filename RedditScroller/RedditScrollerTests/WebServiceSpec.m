@@ -11,10 +11,6 @@ beforeAll(^{
   [[LSNocilla sharedInstance] start];
 });
 
-afterAll(^{
-	
-});
-
 beforeEach(^{
 	stubRequest(@"GET", [RSConstants redditApiUrl]).
 	withHeaders(@{@"Accept": @"application/json"}).
@@ -27,23 +23,13 @@ beforeEach(^{
 	stubRequest(@"GET", [NSString stringWithFormat:@"%@%@",[RSConstants redditApiUrl],@"&before=t3_1kmotr"]).
 	withHeaders(@{@"Accept": @"application/json"}).
 	andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleRealRedditFirstPageResults]);
-});
-
-afterEach(^{
+	
+	stubRequest(@"GET", [NSString stringWithFormat:@"%@%@",[RSConstants redditApiUrl],@"&after=empty_data"]).
+	withHeaders(@{@"Accept": @"application/json"}).
+	andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleEmptyRedditResults]);
 	
 });
 
-
-// 1. Get results from Reddit, return array of results in completion block
-// 2. Should call failure block on network failure
-// 3. Should display an alert view when reaching the end of the list
-// 4. Should repopulate list upon refresh
-// 5. Should create different model types from dictionary
-// 6. Should create a self-text post that loads itself
-// 7. Should launch a webview if its a link post
-// 8. Empty self texts should be discarded
-// 10. after should return results that are unique from the regular one
-// 11. "after" property should be the same one as before
 
 describe(@"WebService", ^{
 	context(@"when instantiated", ^{
@@ -54,7 +40,6 @@ describe(@"WebService", ^{
 	
 	context(@"when getting the latest Reddit data", ^{
 		it(@"should call a success block if successful", ^{
-			NSLog(@"*******$$$$$$$$$$$$$$$ failing test $$$$$$$$$$$$$$$");
 			stubRequest(@"GET", [RSConstants redditApiUrl]).
 			withHeaders(@{@"Accept": @"application/json"}).
 			andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleRealRedditFirstPageResults]);
@@ -67,7 +52,7 @@ describe(@"WebService", ^{
 				blockStatus = @"failure";
 			}];
 			
-			[[expectFutureValue(blockStatus) shouldEventuallyBeforeTimingOutAfter(4)] equal:@"success"];
+			[[expectFutureValue(blockStatus) shouldEventually] equal:@"success"];
 		});
 	});
 	
@@ -96,16 +81,53 @@ describe(@"WebService", ^{
 	
 	context(@"when getting the second page of reddit data", ^{
 		it(@"should call a success block with post data", ^{
+			__block NSArray* resultsArray = nil;
 			[[RSWebService sharedService] retrieveRedditDataAfter:@"t3_1kluu8" withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
+				resultsArray = dataObjects;
 				[[theValue(dataObjects.count) should] beGreaterThan:theValue(0)];
 				for (RSRedditPost* object in dataObjects) {
 					[[object should] beNonNil];
 					[[[object title] should] beNonNil];
 				}
-			 [[beforePost should] beNonNil];			 
+				[[beforePost should] beNonNil];
 			} andFailureBlock:^(NSString *message, NSError *error) {
 				fail(@"failure block called");
 			}];
+			[[resultsArray shouldEventually] beNonNil];
+		});
+	});
+	
+	context(@"when going to a previous page of valid reddit data", ^{
+		__block NSArray* resultsArray = nil;
+		it (@"should call a success block with post data", ^{
+			[[RSWebService sharedService] retrieveRedditDataAfter:@"t3_1kluu8" withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
+				[[RSWebService sharedService] retrieveRedditDataBefore:@"t3_1kmotr" withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
+					resultsArray = dataObjects;
+					[[theValue(dataObjects.count) should] beGreaterThan:theValue(0)];
+					for (RSRedditPost* object in dataObjects) {
+						[[object should] beNonNil];
+						[[[object title] should] beNonNil];
+					}
+				} andFailureBlock:^(NSString *message, NSError *error) {
+					fail(@"failure block called");
+				}];
+			} andFailureBlock:^(NSString *message, NSError *error) {
+				fail(@"failure block called");
+			}];
+			[[resultsArray shouldEventually] beNonNil];
+		});
+	});
+	
+	context(@"when fetching an empty page", ^{
+		it (@"should call a failure block with the correct error code", ^{
+			__block NSArray* resultsArray = nil;
+			[[RSWebService sharedService] retrieveRedditDataAfter:@"empty_data" withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
+				resultsArray = dataObjects;
+				[[theValue(dataObjects.count) should] equal:theValue(0)];
+			} andFailureBlock:^(NSString *message, NSError *error) {
+				fail(@"failure block called");
+			}];
+			[[resultsArray shouldEventually] beNonNil];
 		});
 	});
 });

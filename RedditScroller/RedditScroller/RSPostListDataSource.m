@@ -16,25 +16,21 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	NSLog(@"num sections: %d",[[RSDataManager sharedManager] redditData].count);
 	return [[RSDataManager sharedManager] redditData].count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	NSLog(@"nubmer of rows");
 	return 1;
 }
 
 -(RSRedditPost*)postForIndexPath:(NSIndexPath *)indexPath
 {
-	NSLog(@"post for index path: %d",indexPath.section);
 	return [[[RSDataManager sharedManager] redditData] objectAtIndex:indexPath.section];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSLog(@"cellForRowAtIndexPath: %@",indexPath);
 	RSRedditPostCell *cell = [tableView dequeueReusableCellWithIdentifier:kRSRedditPostCellIdentifier forIndexPath:indexPath];
 	
 	RSRedditPost *post = [self postForIndexPath:indexPath];

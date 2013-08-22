@@ -15,13 +15,13 @@
 {
 	
 	NSDictionary *dataDictionary = dictionary[kRSDataKey] ? dictionary[kRSDataKey] : nil;
-
+	
 	if (!dataDictionary[kRSIsSelfKey]) {
 		self.isSelfText = false;
 	} else {
 		self.isSelfText = [dataDictionary[kRSIsSelfKey] boolValue];
 	}
-
+	
 	if (!dataDictionary[kRSNumCommentsKey]) {
 		self.numberOfComments = 0;
 	} else {
@@ -33,7 +33,7 @@
 	} else {
 		self.isNSFW = [dataDictionary[kRSNSFWKey] boolValue];
 	}
-
+	
 	self.selftext = dataDictionary[kRSSelfTextKey] ? dataDictionary[kRSSelfTextKey] : @"";
 	self.subreddit = dataDictionary[kRSSubredditKey] ? dataDictionary[kRSSubredditKey] : @"";
 	self.domain = dataDictionary[kRSDomainKey] ? dataDictionary[kRSDomainKey] : @"";

@@ -18,4 +18,5 @@
 +(NSString*)sampleRealRedditFirstPageResults;
 +(NSString*)sampleReadRedditSecondPageResults;
 +(NSString*)sampleRealRedditFakeLastPageResults;
++(NSString*)sampleEmptyRedditResults;
 @end
