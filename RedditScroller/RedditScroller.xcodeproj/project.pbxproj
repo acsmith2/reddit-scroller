@@ -380,6 +380,25 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		C27E8E3F17C5F76F00AD3EEE /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA796517BA11E500164509 /* DataManagerSpec.m */,
+				C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */,
+				C2AA797117BB62F400164509 /* RedditPostSpec.m */,
+			);
+			name = Specs;
+			sourceTree = "<group>";
+		};
+		C27E8E4017C5F78000AD3EEE /* Mock Data */ = {
+			isa = PBXGroup;
+			children = (
+				C23A848617C1B67D008BD2B4 /* RSFakeRedditData.h */,
+				C23A848717C1B67D008BD2B4 /* RSFakeRedditData.m */,
+			);
+			name = "Mock Data";
+			sourceTree = "<group>";
+		};
 		C28E01B317B4C958005806FE = {
 			isa = PBXGroup;
 			children = (
@@ -444,14 +463,11 @@
 		C28E01E917B4C958005806FE /* RedditScrollerTests */ = {
 			isa = PBXGroup;
 			children = (
-				C23A848617C1B67D008BD2B4 /* RSFakeRedditData.h */,
-				C23A848717C1B67D008BD2B4 /* RSFakeRedditData.m */,
+				C27E8E4017C5F78000AD3EEE /* Mock Data */,
+				C27E8E3F17C5F76F00AD3EEE /* Specs */,
 				C2AA795317B9D97900164509 /* Third Party */,
 				C2F9344A17B4CF3600231A57 /* Nocilla */,
 				C28E01EA17B4C958005806FE /* Supporting Files */,
-				C2AA796517BA11E500164509 /* DataManagerSpec.m */,
-				C2F9334D17B4CB2600231A57 /* WebServiceSpec.m */,
-				C2AA797117BB62F400164509 /* RedditPostSpec.m */,
 			);
 			path = RedditScrollerTests;
 			sourceTree = "<group>";
