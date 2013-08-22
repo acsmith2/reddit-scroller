@@ -33,6 +33,12 @@
 	} else {
 		self.isNSFW = [dataDictionary[kRSNSFWKey] boolValue];
 	}
+
+	if (!dataDictionary[kRSScoreKey]) {
+		self.score = 0;
+	} else {
+		self.score = [dataDictionary[kRSScoreKey] intValue];
+	}
 	
 	self.selftext = dataDictionary[kRSSelfTextKey] ? dataDictionary[kRSSelfTextKey] : @"";
 	self.subreddit = dataDictionary[kRSSubredditKey] ? dataDictionary[kRSSubredditKey] : @"";
@@ -42,6 +48,7 @@
 	self.url = dataDictionary[kRSURLKey] ? dataDictionary[kRSURLKey] : @"";
 	self.thumbnail_url = dataDictionary[kRSThumbnailKey] ? dataDictionary[kRSThumbnailKey] : @"";
 	self.posterName = dataDictionary[kRSPosterNameKey] ? dataDictionary[kRSPosterNameKey] : @"";
+
 	return self;
 }
 

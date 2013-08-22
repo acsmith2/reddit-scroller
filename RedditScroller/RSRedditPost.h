@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* url;
 @property (strong, nonatomic) NSString* posterName;
+@property NSInteger score;
 @property NSInteger numberOfComments;
 @property Boolean isNSFW;
 @property Boolean isSelfText;

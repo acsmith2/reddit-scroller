@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel* domainLabel;
 @property (strong, nonatomic) IBOutlet UILabel* commentsLabel;
 @property (strong, nonatomic) IBOutlet UIImageView* thumbnailImageView;
+@property (strong, nonatomic) IBOutlet UILabel* scoreLabel;
 
 @end
 
@@ -46,6 +47,7 @@
 	[self.nsfwLabel setHidden:!(redditPost.isNSFW)];
 	[self.commentsLabel setText:[NSString stringWithFormat:@"%d comments",redditPost.numberOfComments]];
 	[self.domainLabel setText:redditPost.domain];
+	[self.scoreLabel setText:[NSString stringWithFormat:@"%d",redditPost.score]];
 	[self.thumbnailImageView setContentMode:UIViewContentModeScaleAspectFit];
 	if ((redditPost.thumbnail_url != nil) && (![redditPost.thumbnail_url isEqualToString:@""])){
 		[self.thumbnailImageView setImageWithURL:[NSURL URLWithString:redditPost.thumbnail_url] placeholderImage:[UIImage imageNamed:@"RedditLogo"]];

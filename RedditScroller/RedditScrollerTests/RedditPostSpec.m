@@ -19,6 +19,7 @@ describe(@"RedditPost", ^{
 			[[post.selftext should] equal:@""];
 			[[post.thumbnail_url should] equal:@""];
 			[[post.url should] equal:@""];
+			[[theValue(post.score) should] equal:theValue(0)];
 			[[theValue(post.numberOfComments) should] equal:theValue(0)];
 		});
 	});
@@ -34,6 +35,7 @@ describe(@"RedditPost", ^{
 			[[post.selftext should] equal:@""];
 			[[post.thumbnail_url should] equal:@""];
 			[[theValue(post.isSelfText) should] beFalse];
+			[[theValue(post.score) should] equal:@3827];
 			[[post.url should] equal:@"http://hyperloop.com/"];
 			[[theValue(post.numberOfComments) should] equal:@3131];
 		});

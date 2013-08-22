@@ -24,6 +24,7 @@
 #define kRSBeforeKey @"before"
 #define kRSAfterKey @"after"
 #define kRSPosterNameKey @"author"
+#define kRSScoreKey @"score"
 
 // Server Info
 #define kRSRedditApiUrl @"http://www.reddit.com/.json"
