@@ -48,6 +48,12 @@ describe(@"WebService", ^{
 			
 			[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects, NSString* beforePost, NSString* afterPost) {
 				blockStatus = @"success";
+				for (RSRedditPost* post in dataObjects) {
+					if (post.thumbnail_url) {
+						stubRequest(@"GET", post.thumbnail_url).
+						withHeaders(@{ @"Accept": @"image/*" });
+					}
+				}
 			} andFailureBlock:^(NSString *message, NSError *error) {
 				blockStatus = @"failure";
 			}];
@@ -68,6 +74,12 @@ describe(@"WebService", ^{
 			
 			[[RSWebService sharedService] retrieveLatestRedditDataWithSuccessBlock:^(NSArray *dataObjects, NSString* beforePost, NSString* afterPost) {
 				blockStatus = @"success";
+				for (RSRedditPost* post in dataObjects) {
+					if (post.thumbnail_url) {
+						stubRequest(@"GET", post.thumbnail_url).
+						withHeaders(@{ @"Accept": @"image/*" });
+					}
+				}
 			} andFailureBlock:^(NSString *message, NSError *error) {
 				blockStatus = @"failure";
 				stubRequest(@"GET", [RSConstants redditApiUrl]).
@@ -86,6 +98,10 @@ describe(@"WebService", ^{
 				resultsArray = dataObjects;
 				[[theValue(dataObjects.count) should] beGreaterThan:theValue(0)];
 				for (RSRedditPost* object in dataObjects) {
+					if (object.thumbnail_url) {
+						stubRequest(@"GET", object.thumbnail_url).
+						withHeaders(@{ @"Accept": @"image/*" });
+					}
 					[[object should] beNonNil];
 					[[[object title] should] beNonNil];
 				}
@@ -107,6 +123,10 @@ describe(@"WebService", ^{
 					for (RSRedditPost* object in dataObjects) {
 						[[object should] beNonNil];
 						[[[object title] should] beNonNil];
+						if (object.thumbnail_url) {
+							stubRequest(@"GET", object.thumbnail_url).
+							withHeaders(@{ @"Accept": @"image/*" });
+						}
 					}
 				} andFailureBlock:^(NSString *message, NSError *error) {
 					fail(@"failure block called");
@@ -124,6 +144,12 @@ describe(@"WebService", ^{
 			[[RSWebService sharedService] retrieveRedditDataAfter:@"empty_data" withSuccessBlock:^(NSArray *dataObjects, NSString *beforePost, NSString *afterPost) {
 				resultsArray = dataObjects;
 				[[theValue(dataObjects.count) should] equal:theValue(0)];
+				for (RSRedditPost* post in dataObjects) {
+					if (post.thumbnail_url) {
+						stubRequest(@"GET", post.thumbnail_url).
+						withHeaders(@{ @"Accept": @"image/*" });
+					}
+				}
 			} andFailureBlock:^(NSString *message, NSError *error) {
 				fail(@"failure block called");
 			}];

@@ -24,8 +24,16 @@ beforeEach(^{
 	stubRequest(@"GET", [NSString stringWithFormat:@"%@%@",[RSConstants redditApiUrl],@"&before=t3_1kmotr"]).
 	withHeaders(@{@"Accept": @"application/json"}).
 	andReturn(200).withHeaders(@{@"Content-Type": @"application/json"}).withBody([RSFakeRedditData sampleRealRedditFirstPageResults]);
-	
+
+	NSArray* allPosts = [[RSDataManager sharedManager] redditData];
+	for (RSRedditPost* post in allPosts) {
+		if (post.thumbnail_url) {
+			stubRequest(@"GET", post.thumbnail_url).
+			withHeaders(@{ @"Accept": @"image/*" });
+		}
+	}
 });
+
 
 describe(@"DataManager", ^{
 	context(@"when instantiated", ^{
